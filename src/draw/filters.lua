@@ -1,4 +1,30 @@
 local filterColumnX = {}
+local filterScratch = {}
+local filterOpen = {}
+
+local function scratchOf(n)
+    if not filterScratch[n] then
+        filterScratch[n] = createCleanFilter()
+    end
+    return filterScratch[n]
+end
+
+local function foldColumn(n, src)
+    local dst = FILTER_CACHE[n]
+    if filterOpen[n] then
+        for i = 1, 256 do
+            local v = src[i]
+            if v > dst[i] then
+                dst[i] = v
+            end
+        end
+    else
+        for i = 1, 256 do
+            dst[i] = src[i]
+        end
+        filterOpen[n] = true
+    end
+end
 
 local function sampleSpan(pxW, pxH, x0, x1, sy, h, rgbData)
     local xa = math.floor(math.min(x0, x1))
@@ -67,18 +93,21 @@ function fillFilterCache(n)
     local x0 = x
     local prev = filterColumnX[n]
     if prev and cursor > filterCursorSeen[n] then
-        local limit = math.abs(w) / math.max(frames, 1) * 8 + 2
+        local limit = math.abs(w) + 2
         if math.abs(x - prev) <= limit then
             x0 = prev
         end
     end
-    local rgbData = FILTER_CACHE[n]
+    local rgbData = scratchOf(n)
     local readMs = 0
     local sampleMs = 0
 
     if fboSampleColumnR then
-        local staged = fboSampleColumnR(fbo2, x0, x, sy, h, rgbData)
-        if staged ~= false then
+        local status = fboSampleColumnR(fbo2, x0, x, sy, h, rgbData)
+        if status == 2 then
+            filterColumnX[n] = x
+            foldColumn(n, rgbData)
+        elseif status == 1 or status == true then
             filterColumnX[n] = x
         end
         if PERF.on then
@@ -91,6 +120,7 @@ function fillFilterCache(n)
         local pxW = pixels:getWidth()
         local pxH = pixels:getHeight()
         sampleSpan(pxW, pxH, x0, x, sy, h, rgbData)
+        foldColumn(n, rgbData)
         filterColumnX[n] = x
         if PERF.on then
             sampleMs = perfNowMs() - t1
@@ -136,7 +166,7 @@ function fillFilterCache(n)
         end
     end
 
-    return rgbData
+    return FILTER_CACHE[n]
 end
 
 function refreshActiveFilterCaches()
@@ -156,6 +186,8 @@ function refreshActiveFilterCaches()
     for n = 1, SEL_CNT do
         if selects[n] then
             fillFilterCache(n)
+        else
+            filterOpen[n] = false
         end
     end
     if PERF.on then
@@ -164,6 +196,7 @@ function refreshActiveFilterCaches()
 end
 
 function pixelColumntToArray(n)
+    filterOpen[n] = false
     if not selects[n] then
         return ZERO_FILTER
     end
