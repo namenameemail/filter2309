@@ -115,7 +115,10 @@ function M.draw()
 			end
 
 			if brushParameters["type"] == "line" and brushParameters["lineType"] == "2" then
-				drawStraightLine(buttonsPressed[0].sx, buttonsPressed[0].sy, prevPointX, prevPointY)
+				drawType2Line(buttonsPressed[0].sx, buttonsPressed[0].sy, prevPointX, prevPointY)
+			end
+			if brushParameters["type"] == "line" and (brushParameters["lineType"] or "1") == "1" then
+				drawLineStroke()
 			end
 		end
 
@@ -188,6 +191,7 @@ function M.draw()
 
 	-- ВЫДЕЛЕНИЯ
 	drawSelections()
+	drawHarmonicMarks()
 	perfSection("selections")
 
 	if (not isSetting) then

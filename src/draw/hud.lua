@@ -2,9 +2,33 @@ local brushParamText = {}
 brushParamText['lineSize'] = 'size'
 brushParamText['lineType'] = 'line'
 brushParamText['gradient'] = 'gradient'
+brushParamText['curve'] = 'curve'
+brushParamText['dash'] = 'dash'
+brushParamText['gap'] = 'gap'
+brushParamText['harmonics'] = 'harm'
+brushParamText['stepHz'] = 'hz'
 brushParamText['circleSize'] = 'size'
 brushParamText['spectreState'] = 'state'
 brushParamText['spectreMode'] = 'mode'
+
+local function drawCurveIcon(x, baseline)
+    local font = generalSettings["font"] or 1
+    local w = 32 * font
+    local h = 14 * font
+    ofSetLineWidth(math.max(1, font))
+    local prevx, prevy
+    for i = 0, 16 do
+        local t = i / 16
+        local a = fadeAlong(t)
+        if a < 0 then a = 0 elseif a > 1 then a = 1 end
+        local px = x + t * w
+        local py = baseline - a * h
+        if prevx then
+            ofDrawLine(prevx, prevy, px, py)
+        end
+        prevx, prevy = px, py
+    end
+end
 
 function drawBrushParams() 
 
@@ -31,6 +55,9 @@ function drawBrushParams()
         if type == 'lineSize' then string = tostring(math.floor(brushParameters[type] or 0)) end
         if type == 'lineType' then string = tostring(brushParameters[type]) end
         if type == 'gradient' then string = tostring(brushParameters[type]) end
+        if type == 'dash' or type == 'gap' then string = tostring(math.floor(brushParameters[type] or 0)) end
+        if type == 'harmonics' then string = tostring(math.floor(brushParameters[type] or 0)) end
+        if type == 'stepHz' then string = tostring(math.floor(brushParameters[type] or 0)) end
         if type == 'circleSize' then string = tostring(math.floor(brushParameters[type] or 0)) end
         if type == 'color' then string = tostring(brushParameters[type]) end
         if type == 'opacity' then string = string.format("%.2f", (brushParameters[type] or 0) / 100) end
@@ -43,7 +70,11 @@ function drawBrushParams()
         if type == 'spectreState' then string = tostring(brushParameters[type]) end
         if type == 'spectreMode' then string = tostring(brushParameters[type]) end
 
-        title:drawString(string, margin, wH - firstLine)
+        if type == 'curve' then
+            drawCurveIcon(margin, wH - firstLine)
+        else
+            title:drawString(string, margin, wH - firstLine)
+        end
         if (not activeSelectIndex) then
             smalltext:drawString(brushParamText[type] or type, margin, wH - secLine)
         end
@@ -51,7 +82,12 @@ function drawBrushParams()
         if type == 'type' then margin = margin + 70 * generalSettings["font"] end
         if type == 'lineSize' then margin = margin + 40 * generalSettings["font"] end
         if type == 'lineType' then margin = margin + 40 * generalSettings["font"] end
-        if type == 'gradient' then margin = margin + 50 * generalSettings["font"] end
+        if type == 'gradient' then margin = margin + 80 * generalSettings["font"] end
+        if type == 'curve' then margin = margin + 46 * generalSettings["font"] end
+        if type == 'dash' then margin = margin + 48 * generalSettings["font"] end
+        if type == 'gap' then margin = margin + 42 * generalSettings["font"] end
+        if type == 'harmonics' then margin = margin + 40 * generalSettings["font"] end
+        if type == 'stepHz' then margin = margin + 55 * generalSettings["font"] end
         if type == 'circleSize' then margin = margin + 40 * generalSettings["font"] end
         if type == 'color' then margin = margin + 50 * generalSettings["font"] end
         if type == 'opacity' then margin = margin + 50 * generalSettings["font"] end

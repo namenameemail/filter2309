@@ -41,11 +41,7 @@ function mouseDragged(e)
 		end
 		
 		if (brushParameters['type'] == 'line' and (brushParameters['lineType'] or '1') == '1') then
-			local color = brushParameters['color'] == 'black' and 0 or 255
-			ofSetColor(color, color, color, brushParameters['opacity'] / 100 * 255)
-			ofSetLineWidth(brushParameters['lineSize'])
-			
-			ofDrawLine(x, y, prevPointX, prevPointY)
+			extendLineStroke(x, y)
 		end
 
 		if (brushParameters['type'] == 'spectre') then
@@ -163,6 +159,9 @@ function M.mousePressed(e)
 				dynamicSpectres[dynSpectreIndex] = newDynSpectre
 				getActiveDynSpectreIndex(x, y)
 			end
+		end
+		if (brushParameters['type'] == 'line' and (brushParameters['lineType'] or '1') == '1') then
+			beginLineStroke(x, y)
 		end
 		if (brushParameters['type'] == 'clear') then 
 			-- fbo.clear()
@@ -456,7 +455,12 @@ function M.mouseReleased(e)
 		
 		if buttonsPressed[0] and brushParameters['type'] == 'line' and brushParameters['lineType'] == '2' then
 			fbo:beginFbo()
-			drawStraightLine(buttonsPressed[0].sx, buttonsPressed[0].sy, x, y)
+			drawType2Line(buttonsPressed[0].sx, buttonsPressed[0].sy, x, y)
+			fbo:endFbo()
+		end
+		if buttonsPressed[0] and brushParameters['type'] == 'line' and (brushParameters['lineType'] or '1') == '1' then
+			fbo:beginFbo()
+			drawLineStroke()
 			fbo:endFbo()
 		end
 

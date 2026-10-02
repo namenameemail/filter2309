@@ -133,7 +133,22 @@ function M.setup()
 	brushParametersSettings["lineType"] = createRadioParameterSettings(ofTable("1", "2"))
 
 	brushParameters["gradient"] = "off"
-	brushParametersSettings["gradient"] = createRadioParameterSettings(ofTable("off", "on"))
+	brushParametersSettings["gradient"] = createRadioParameterSettings(ofTable("off", "1", "2"))
+
+	brushParameters["curve"] = 0
+	brushParametersSettings["curve"] = createNumberParameterSettings("curve", -8, 8)
+
+	brushParameters["dash"] = 1
+	brushParametersSettings["dash"] = createNumberParameterSettings("dash", 0, 32)
+
+	brushParameters["gap"] = 0
+	brushParametersSettings["gap"] = createNumberParameterSettings("gap", 0, 32)
+
+	brushParameters["harmonics"] = 0
+	brushParametersSettings["harmonics"] = createNumberParameterSettings("harmonics", 0, 32)
+
+	brushParameters["stepHz"] = 44100 / 512
+	brushParametersSettings["stepHz"] = createNumberParameterSettings("stepHz", 44100 / 512, 22050)
 
 	brushParameters["lineSize"] = 1
 	if platform == OF_TARGET_OSX then 

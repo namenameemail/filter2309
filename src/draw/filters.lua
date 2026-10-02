@@ -1,3 +1,52 @@
+local filterColumnX = {}
+
+local function sampleSpan(pxW, pxH, x0, x1, sy, h, rgbData)
+    local xa = math.floor(math.min(x0, x1))
+    local xb = math.floor(math.max(x0, x1))
+    if xa < 0 then xa = 0 end
+    if xb >= pxW then xb = pxW - 1 end
+    local maxInk = {}
+    for i = 1, 256 do
+        maxInk[i] = 0
+    end
+    local yLo = math.floor(sy + (h - 1) + 0.5)
+    local yHi = math.floor(sy + 0.5)
+    local ya = math.min(yLo, yHi)
+    local yb = math.max(yLo, yHi)
+    if ya < 0 then ya = 0 end
+    if yb >= pxH then yb = pxH - 1 end
+    local denom = h - 1
+    local flat = math.abs(denom) <= 1e-4
+    for yy = ya, yb do
+        local bin = 0
+        if not flat then
+            local u = 1 - (yy - sy) / denom
+            bin = math.floor(u * 255 / 2 + 0.5)
+            if bin < 0 then bin = 0 end
+            if bin > 127 then bin = 127 end
+        end
+        local ink = maxInk[bin + 1]
+        for x = xa, xb do
+            local col = pixels:getColor(pixels:getPixelIndex(x, yy))
+            local v = 255 - col.r
+            if v > ink then ink = v end
+        end
+        maxInk[bin + 1] = ink
+    end
+    if flat then
+        for i = 2, 256 do
+            maxInk[i] = maxInk[1]
+        end
+    else
+        for i = 129, 256 do
+            maxInk[i] = maxInk[128]
+        end
+    end
+    for i = 1, 256 do
+        rgbData[i] = maxInk[i]
+    end
+end
+
 function fillFilterCache(n)
     local sel = selects[n]
     if not sel then
@@ -15,12 +64,23 @@ function fillFilterCache(n)
     local h = sel["h"]
     local frames = sel["frames"]
     local x = math.floor(sx + cursor / frames * w + 0.5)
+    local x0 = x
+    local prev = filterColumnX[n]
+    if prev and cursor > filterCursorSeen[n] then
+        local limit = math.abs(w) / math.max(frames, 1) * 8 + 2
+        if math.abs(x - prev) <= limit then
+            x0 = prev
+        end
+    end
     local rgbData = FILTER_CACHE[n]
     local readMs = 0
     local sampleMs = 0
 
     if fboSampleColumnR then
-        fboSampleColumnR(fbo2, x, sy, h, rgbData)
+        local staged = fboSampleColumnR(fbo2, x0, x, sy, h, rgbData)
+        if staged ~= false then
+            filterColumnX[n] = x
+        end
         if PERF.on then
             readMs = perfNowMs() - t0
         end
@@ -30,21 +90,8 @@ function fillFilterCache(n)
         readMs = t1 - t0
         local pxW = pixels:getWidth()
         local pxH = pixels:getHeight()
-        if x < 0 then
-            x = 0
-        elseif x >= pxW then
-            x = pxW - 1
-        end
-        for i = 0, 255 do
-            local yy = math.floor(sy + (1 - math.min(1, math.max(0, i * 2 / 255))) * (h - 1) + 0.5)
-            if yy < 0 then
-                yy = 0
-            elseif yy >= pxH then
-                yy = pxH - 1
-            end
-            local col = pixels:getColor(pixels:getPixelIndex(x, yy))
-            rgbData[i + 1] = 255 - col.r
-        end
+        sampleSpan(pxW, pxH, x0, x, sy, h, rgbData)
+        filterColumnX[n] = x
         if PERF.on then
             sampleMs = perfNowMs() - t1
         end

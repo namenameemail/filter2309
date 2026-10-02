@@ -1,10 +1,13 @@
-local lineTypeParams = {
-	["1"] = {"type", "lineType", "lineSize", "color", "opacity"},
-	["2"] = {"type", "lineType", "lineSize", "color", "opacity", "gradient"},
-}
-
 local function lineParams()
-	return lineTypeParams[brushParameters["lineType"]] or lineTypeParams["1"]
+	local params = {"type", "lineType", "lineSize", "color", "opacity", "gradient"}
+	if brushParameters["gradient"] == "1" then
+		params[#params + 1] = "curve"
+	end
+	params[#params + 1] = "dash"
+	params[#params + 1] = "gap"
+	params[#params + 1] = "harmonics"
+	params[#params + 1] = "stepHz"
+	return params
 end
 
 function changeBrushParameter(name, delta)
@@ -58,6 +61,29 @@ function changeBrushParameter(name, delta)
     end
     if name == 'gradient' then
         brushParameters['gradient'] = getNextRadioItem(delta, brushParameters['gradient'], brushParametersSettings['gradient'].items)
+        if brushParameters['gradient'] ~= '1' and brushParameters['current'] == 'curve' then
+            brushParameters['current'] = 'gradient'
+        end
+    end
+    if name == 'curve' then
+        local min = brushParametersSettings['curve'].min
+        local max = brushParametersSettings['curve'].max
+        brushParameters['curve'] = math.max(min, math.min(max, (brushParameters['curve'] or 0) + delta))
+    end
+    if name == 'dash' or name == 'gap' then
+        local min = brushParametersSettings[name].min
+        local max = brushParametersSettings[name].max
+        brushParameters[name] = math.max(min, math.min(max, (brushParameters[name] or 0) + delta))
+    end
+    if name == 'harmonics' then
+        local min = brushParametersSettings['harmonics'].min
+        local max = brushParametersSettings['harmonics'].max
+        brushParameters['harmonics'] = math.max(min, math.min(max, brushParameters['harmonics'] + delta))
+    end
+    if name == 'stepHz' then
+        local min = brushParametersSettings['stepHz'].min
+        local max = brushParametersSettings['stepHz'].max
+        brushParameters['stepHz'] = math.max(min, math.min(max, brushParameters['stepHz'] + delta * min))
     end
 
 

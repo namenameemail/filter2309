@@ -9,7 +9,8 @@
 |---|---|---|
 | 08 | [08-webcam-fallback.md](08-webcam-fallback.md) | todo |
 | 09 | [09-save-download.md](09-save-download.md) | todo |
-| 10 | [10-line-types.md](10-line-types.md) | todo |
+| 10 | [10-line-types.md](10-line-types.md) | done |
+| 12 | [12-filter-rate.md](12-filter-rate.md) | todo |
 
 ## Done
 
@@ -23,5 +24,6 @@
 | 05 | [done/05-copy-patch-assets.md](done/05-copy-patch-assets.md) | done |
 | 06 | [done/06-entry-patch-first-build.md](done/06-entry-patch-first-build.md) | done |
 | 07 | [done/07-port-shaders-webgl.md](done/07-port-shaders-webgl.md) | done |
+| 11 | [done/11-line-harmonic.md](done/11-line-harmonic.md) | done |
 | opt-03 | [done/opt-03-audioworklet-output.md](done/opt-03-audioworklet-output.md) | done |
 | opt-04 | [done/opt-04-decouple-pd-lua.md](done/opt-04-decouple-pd-lua.md) | done |
