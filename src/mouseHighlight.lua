@@ -79,10 +79,9 @@ end
 -- Функция для показа диаметров с поворотом угла
 function MouseHighlight.showDiameters(a)
     MouseHighlight.diameters.visible = true
-    MouseHighlight.diameters.startTime = os.clock()
+    MouseHighlight.diameters.startTime = ofGetElapsedTimef()
     -- Поворачиваем угол на 45 градусов при каждом вызове
     MouseHighlight.diameters.angle = (MouseHighlight.diameters.angle + 10 * a) % 360
-    print("Diameters shown with angle: " .. MouseHighlight.diameters.angle .. " degrees")
 end
 
 -- Функция для установки времени показа диаметров
@@ -100,7 +99,7 @@ end
 -- Функция для проверки, нужно ли скрыть диаметры
 function MouseHighlight.updateDiameters()
     if MouseHighlight.diameters.visible then
-        local currentTime = os.clock()
+        local currentTime = ofGetElapsedTimef()
         if currentTime - MouseHighlight.diameters.startTime >= MouseHighlight.diameters.duration then
             MouseHighlight.diameters.visible = false
         end

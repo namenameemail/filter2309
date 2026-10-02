@@ -138,7 +138,12 @@ function M.free()
 end
 
 function M.setup()
+	if setupDone then
+		return
+	end
+	setupDone = true
 	print("setup 12", "fboSampleColumnR", fboSampleColumnR ~= nil) 
+	collectgarbage("stop")
 	-- ofSetWindowTitle("simple color quad") 
 	-- ofBackground(255, 255, 255, 255) 
 	-- local platform = ofGetTargetPlatform() 
@@ -449,6 +454,8 @@ function M.draw()
 	if perfBeginDraw then
 		perfBeginDraw()
 	end
+	drawPendingFreq()
+	collectgarbage("step")
 	-- print('draw')
 	-- ofSetColor(255)
 	-- shader:beginShader()
@@ -513,7 +520,7 @@ function M.draw()
 				ofSetColor(255, 255, 255, brushParameters["opacity"] / 100 * 255)
 				-- ofDisableAlphaBlending(); 
 				ofEnableAlphaBlending(); 
-				fboCam:draw(x, y, w, h)
+				fboCam:draw(x, H - y, w, -h)
 			end
 
 			
@@ -556,7 +563,7 @@ function M.draw()
 				ofSetColor(255, 255, 255, brushParameters["opacity"] / 100 * 255)
 				-- ofDisableAlphaBlending(); 
 				ofEnableAlphaBlending(); 
-				fboCam:draw(x, y, w, h)
+				fboCam:draw(x, H - y, w, -h)
 			end
 		end
 
@@ -1030,7 +1037,7 @@ function M.mouseReleased(e)
 					ofSetColor(255, 255, 255, brushParameters["opacity"] / 100 * 255)
 					-- ofDisableAlphaBlending(); 
 					ofEnableAlphaBlending(); 
-					fboCam:draw(xx, yy, w, h)
+					fboCam:draw(xx, H - yy, w, -h)
 
 				end
 
@@ -1083,7 +1090,7 @@ function M.mouseReleased(e)
 					ofSetColor(255, 255, 255, brushParameters["opacity"] / 100 * 255)
 					-- ofDisableAlphaBlending(); 
 					ofEnableAlphaBlending(); 
-					fboCam:draw(xx, yy, w, h)
+					fboCam:draw(xx, H - yy, w, -h)
 
 				end
 
@@ -1241,17 +1248,6 @@ function M.keyPressed(e)
 	end
 
 	local target = activeSelectIndex
-
-	if e.key == 112 or e.key == 80 then
-		if PERF then
-			PERF.on = not PERF.on
-			print("PERF", PERF.on and "on" or "off")
-			if PERF.on then
-				PERF.lastLogMs = 0
-				perfFlush()
-			end
-		end
-	end
 
 	if (e.key == OF_KEY_UP or e.key == OF_KEY_DOWN) then 
 		local delta = 1

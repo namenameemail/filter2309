@@ -81,8 +81,8 @@ button1PressedTime = nil
 previewParameter = nil
 
 PERF = ofTable()
-PERF.on = true
-PERF.intervalMs = 1000
+PERF.on = PERF_REQUESTED == true
+PERF.intervalMs = 5000
 PERF.lastLogMs = 0
 PERF.startMs = nil
 PERF.col = ofTable()
@@ -143,12 +143,26 @@ function perfFlushSections()
         end
     end
     print("PERF sections avg/max ms: " .. table.concat(parts, " "))
-    if audioPerfTake then
-        local calls, sum, max = audioPerfTake()
-        if calls and calls > 0 then
-            print(string.format("PERF audio calls=%d avg=%.2fms max=%.2fms busy=%.0fms/s", calls, sum / calls, max, sum))
-        end
+    perfFlushStats()
+end
+
+function perfFlushStats()
+    local s = perfStatsTake and perfStatsTake()
+    if not s then
+        return
     end
+    local now = perfNowMs()
+    local sec = math.max((now - (PERF._statsT or now - PERF.intervalMs)) / 1000, 0.001)
+    PERF._statsT = now
+    local sr = 44100
+    local ticksNeeded = sr / 64 * sec
+    local worklet = (s.worklet or 0) == 1
+    local outputQueueFrames = worklet and 128 or s.bufferFrames * 2
+    local estLatencyMs = (s.ringAvgFrames + outputQueueFrames) / sr * 1000 + math.max(s.baseLatencyMs, 0) + math.max(s.outputLatencyMs, 0)
+    local realtimeX = s.dspMs > 0 and s.ticks * 64 / sr * 1000 / s.dspMs or 0
+    print(string.format("PERF pd ticksPct=%.0f dsp=%.0fms/s lockWait=%.0fms/s realtimeX=%.2f", s.ticks / ticksNeeded * 100, s.dspMs / sec, s.lockWaitMs / sec, realtimeX))
+    print(string.format("PERF out worklet=%d running=%d underruns=%d late=%d gapMax=%.1fms ring min/avg/target=%.0f/%.0f/%d frames base=%.1fms out=%.1fms estLatency=%.0fms", worklet and 1 or 0, s.audioRunning or -1, s.underruns, s.lateCallbacks, s.callbackGapMaxMs, s.ringMinFrames, s.ringAvgFrames, s.ringTargetFrames, s.baseLatencyMs or -1, s.outputLatencyMs or -1, estLatencyMs))
+    print(string.format("PERF main pdLocks=%d pdWait=%.1fms/s pdHold=%.1fms/s pdHoldMax=%.2fms luaHold=%.0fms/s luaHoldMax=%.1fms longTasks=%d longTaskMax=%.0fms", s.mainLocks, s.mainLockWaitMs / sec, s.mainLockHoldMs / sec, s.mainLockHoldMaxMs, s.luaHoldMs / sec, s.luaHoldMaxMs, s.longTasks or -1, s.longTaskMaxMs or -1))
 end
 
 function perfCol(n)
@@ -260,31 +274,35 @@ function perfFlush()
     PERF.drawMaxMs = 0
 end
 
-function drawFreq() 
+freqPendingColumns = 0
+FREQ_MAX_PENDING_COLUMNS = 4
+
+function drawFreq()
+    freqPendingColumns = math.min(freqPendingColumns + 1, FREQ_MAX_PENDING_COLUMNS)
+end
+
+function drawPendingFreq()
+    if freqPendingColumns == 0 then
+        return
+    end
     local t0 = perfNowMs()
-    local freqsArray = ofArray('freq')
-	fboFreq:beginFbo()
-    
-        -- print(freqsArray[1], (1 - freqsArray[math.floor(1 / freqH * 255 / 2)]) * 255)
+    local freqs = ofArray('freq'):get(0)
+    local lastFreq = #freqs
+    fboFreq:beginFbo()
+    ofFill()
+    for _ = 1, freqPendingColumns do
         for i = 1, freqH do
-
-
-            local color = (1 - freqsArray[math.floor(i / freqH * 255 / 2)]) * 255
-
+            local color = (1 - freqs[math.min(math.floor(i / freqH * 255 / 2) + 1, lastFreq)]) * 255
             ofSetColor(color, color, color, 255)
-
-            ofFill()
             ofDrawRectangle(freqCursor, freqH - i, 1, 1)
         end
-
-
-    fboFreq:endFbo()
-
-    freqCursor = freqCursor + 1 
-    
-    if (freqCursor > freqW) then
-        freqCursor = 1
+        freqCursor = freqCursor + 1
+        if freqCursor > freqW then
+            freqCursor = 1
+        end
     end
+    fboFreq:endFbo()
+    freqPendingColumns = 0
     perfSince("freq", t0)
 end
 
