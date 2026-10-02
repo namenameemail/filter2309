@@ -26,5 +26,3 @@
 - звук отстаёт от курсора (~80–110 мс по цепочке буферов);
 - обрывы: draw держит `sys_lock` весь кадр; вывод через ScriptProcessor в main;
 - пики совпадают с потоком WebGL-предупреждений PBO.
-
-См. [tasks/opt-00-overview.md](../tasks/opt-00-overview.md).

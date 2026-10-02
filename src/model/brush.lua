@@ -1,0 +1,145 @@
+function changeBrushParameter(name, delta)
+    
+    -- print(1, name == 'current', delta, brushParameters['type'])
+    if name == 'type' then
+        brushParameters['type'] = getNextRadioItem(delta, brushParameters['type'], brushParametersSettings['type'].items)
+    end
+    
+    if name == 'current' then
+        -- print(2, getNextRadioItem(delta, brushParameters['current'], brushParametersSettings['current'].items))
+        brushParameters['current'] = getNextRadioItem(delta, brushParameters['current'],  getBrushParamsByCurrentType() )
+    end
+    
+    if name == 'lineSize' then
+        local min = brushParametersSettings['lineSize'].min
+        local max = brushParametersSettings['lineSize'].max
+        brushParameters['lineSize'] = math.max(min, math.min(max, brushParameters['lineSize'] + delta))
+    end
+    if name == 'circleSize' then
+        local min = brushParametersSettings['circleSize'].min
+        local max = brushParametersSettings['circleSize'].max
+        brushParameters['circleSize'] = math.max(min, math.min(max, brushParameters['circleSize'] + delta))
+    end
+    
+    if name == 'color' then
+        brushParameters['color'] = getNextRadioItem(delta, brushParameters['color'], brushParametersSettings['color'].items)
+    end
+    
+    if name == 'opacity' then
+        local min = brushParametersSettings['opacity'].min
+        local max = brushParametersSettings['opacity'].max
+        brushParameters['opacity'] = math.max(min, math.min(max, brushParameters['opacity'] + delta))
+    end
+    if name == 'light' then
+        local min = brushParametersSettings['light'].min
+        local max = brushParametersSettings['light'].max
+        brushParameters['light'] = math.max(min, math.min(max, brushParameters['light'] + delta))
+    end
+    if name == 'fill' then
+        brushParameters['fill'] = getNextRadioItem(delta, brushParameters['fill'], brushParametersSettings['fill'].items)
+    end
+
+
+    
+    if name == 'offsetX' then
+        local min = brushParametersSettings['offsetX'].min
+        local max = brushParametersSettings['offsetX'].max
+        local d = delta / math.abs(delta) * brushParameters['scale'] / 10
+        brushParameters['offsetX'] = math.max(min, math.min(max, brushParameters['offsetX'] + d))
+    end
+    if name == 'offsetY' then
+        local min = brushParametersSettings['offsetY'].min
+        local max = brushParametersSettings['offsetY'].max
+        local d = delta / math.abs(delta) * brushParameters['scale'] / 10
+        brushParameters['offsetY'] = math.max(min, math.min(max, brushParameters['offsetY'] + d))
+    end
+
+    if name == ('offsetX' .. 'wheel') then
+        local min = brushParametersSettings['offsetX'].min
+        local max = brushParametersSettings['offsetX'].max
+        local d = delta / 100 * brushParameters['scale'] -- / math.abs(delta) * brushParameters['scale'] / 10
+        brushParameters['offsetX'] = math.max(min, math.min(max, brushParameters['offsetX'] + d))
+    end
+    if name == ('offsetY' .. 'wheel') then
+        local min = brushParametersSettings['offsetY'].min
+        local max = brushParametersSettings['offsetY'].max
+        local d = delta / 100 * brushParameters['scale'] -- / math.abs(delta) * brushParameters['scale'] / 10
+        brushParameters['offsetY'] = math.max(min, math.min(max, brushParameters['offsetY'] + d))
+    end
+
+    if name == 'scale' then
+        local min = brushParametersSettings['scale'].min
+        local max = brushParametersSettings['scale'].max
+        local d = delta / math.abs(delta) * brushParameters['scale'] / 10
+        brushParameters['scale'] = math.max(min, math.min(max, brushParameters['scale'] + d))
+    end
+    
+    if name == 'spectreState' then
+        brushParameters['spectreState'] = getNextRadioItem(delta, brushParameters['spectreState'], brushParametersSettings['spectreState'].items)
+        if (brushParameters['spectreState'] == 'on') then
+            sends["spectreOn"]:sendFloat(1)
+        else
+            sends["spectreOn"]:sendFloat(0)
+        end
+
+    end
+    
+    if name == 'spectreMode' then
+        brushParameters['spectreMode'] = getNextRadioItem(delta, brushParameters['spectreMode'], brushParametersSettings['spectreMode'].items)
+    end
+    
+    
+end
+
+function getBrushParamsByCurrentType() 
+
+    local type = brushParameters['type']
+
+    if type == "camera" then
+        return {"type", "opacity", 'light'}
+    end
+
+    if type == "line" then
+        return {"type", "lineSize", "color", "opacity"}
+    end
+    if type == 'circle' then
+        return {"type", "circleSize", "color", "opacity", 'fill'}
+    end
+    if type == 'fractal' then
+        return {"type", 'scale', "color", 'light', "opacity"} --, 'offsetX', 'offsetY'}
+    end
+    if type == 'spectre' then
+        return {"type", "spectreState", 'spectreMode'} --, 'offsetX', 'offsetY'}
+    end
+    if type == 'clear' then
+        return {"type"}
+    end
+
+end
+
+
+function getVisualBrushParamsByCurrentType() 
+
+  local type = brushParameters['type']
+
+  if type == "camera" then
+      return {"type", "opacity", 'light'}
+  end
+
+  if type == "line" then
+      return {"type", "lineSize", "color", "opacity"}
+  end
+  if type == 'circle' then
+      return {"type", "circleSize", "color", "opacity", 'fill'}
+  end
+  if type == 'fractal' then
+    return {"type", 'scale', "color", 'light', "opacity", 'offsetX', 'offsetY'}
+  end
+  if type == 'spectre' then
+      return {"type", "spectreState", 'spectreMode'} 
+  end
+  if type == 'clear' then
+      return {"type"}
+  end
+
+end

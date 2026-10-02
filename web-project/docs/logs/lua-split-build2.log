@@ -1,0 +1,866 @@
+Setting up EMSDK environment (suppress these messages with EMSDK_QUIET=1)
+Adding directories to PATH:
+PATH += /home/name/Desktop/filter2309/web-project/vendor/emsdk
+PATH += /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten
+
+Setting environment variables:
+PATH = /home/name/Desktop/filter2309/web-project/vendor/emsdk:/home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten:/home/name/go-sdk/go/bin:/home/name/go/bin:/home/name/.local/bin:/home/name/yandex-cloud/bin:/usr/share/cursor/resources/app/node_modules/@vscode/ripgrep/bin:/home/name/.nvm/versions/node/v22.20.0/bin:/home/name/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+EMSDK = /home/name/Desktop/filter2309/web-project/vendor/emsdk
+EMSDK_NODE = /home/name/Desktop/filter2309/web-project/vendor/emsdk/node/24.19.0_64bit/bin/node
+emmake: "make -j2" in "/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/apps/myApps/filter2309"
+EMBIND_AOT disabled (safer for addons)
+Compiling OF library for Release
+make[1]: warning: -j2 forced in submake: resetting jobserver mode.
+make[1]: Entering directory '/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/openFrameworksCompiled/project'
+=== EMBIND_AOT ENABLED === (faster startup / CSP safe)
+💾 CXX = /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/em++
+💾 CC = /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/emcc -r -r
+=== EMBIND_AOT ENABLED === (faster startup / CSP safe)
+💾 CXX = /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/em++
+💾 CC = /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/emcc -r -r -r
+=== EMBIND_AOT ENABLED === (faster startup / CSP safe)
+💾 CXX = /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/em++
+💾 CC = /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/emcc -r -r -r
+Done!
+make[1]: Leaving directory '/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/openFrameworksCompiled/project'
+
+
+Compiling filter2309 for Release
+make[1]: warning: -j2 forced in submake: resetting jobserver mode.
+make[1]: Entering directory '/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/apps/myApps/filter2309'
+EMBIND_AOT disabled (safer for addons)
+ADDON_INCLUDES_EXCLUDE: 
+ADDON_SOURCES_EXCLUDE: 
+ADDON_INCLUDES_EXCLUDE: libs/ofxLua/src/bindings/desktop/% libs/ofxLua/src/bindings/linuxarm/% libs/ofxMidi/libs/pgmidi/% libs/ofxMidi/src/ios/% libs/ofxPd/libs/libpd/lib/%
+ADDON_SOURCES_EXCLUDE: libs/ofxPd/libs/libpd/pure-data/extra/pd~/binarymsg.c libs/ofxPd/libs/libpd/pure-data/extra/pd~/% libs/ofxLua/src/bindings/desktop/% libs/ofxLua/src/bindings/linuxarm/% libs/ofxMidi/libs/pgmidi/% libs/ofxMidi/src/ios/% libs/ofxPd/libs/libpd/lib/%
+Compiling src/ofApp.cpp
+/home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/em++ -c -O3 -DNDEBUG -std=c17 -fPIC -pthread -matomics -mbulk-memory -D__EMSCRIPTEN__ -DURI_STATIC_BUILD -DTARGET_EMSCRIPTEN -Wall -Wno-sign-compare -Wno-unused-variable -Wno-maybe-uninitialized -DPD -DUSEAPI_DUMMY -DPD_INTERNAL -DHAVE_UNISTD_H -DHAVE_ALLOCA_H -DLIBPD_EXTRA -DLIBPD_USE_STD_MUTEX -DPDINSTANCE -DPDTHREADS -DHAVE_LIBDL -D_DEFAULT_SOURCE -D_GNU_SOURCE -DHAVE_ENDIAN_H -U_LARGEFILE64_SOURCE -Wno-implicit-function-declaration -Wno-int-conversion -include alloca.h -DTARGET_STANDALONE -DGLM_FORCE_CTOR_INIT -DGLM_ENABLE_EXPERIMENTAL -Wall -std=c++23 -fPIC -Wno-warn-absolute-paths -pthread -matomics -mbulk-memory -I"/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxEmscripten/src" -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/FreeImage/include -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/brotli/include -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/brotli/include/brotli -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/fmt/include -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/fmt/include/include -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/fmt/include/include/fmt -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/freetype/include -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/freetype/include/freetype -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/freetype/include/freetype/internal -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/freetype/include/freetype/internal/services -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/freetype/include/freetype/config -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/glm/include -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/glm/include/glm -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/glm/include/glm/simd -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/glm/include/glm/detail -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/glm/include/glm/gtc -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/glm/include/glm/ext -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/glm/include/glm/gtx -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/json/include -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/json/include/nlohmann -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/kiss/include -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/libpng/include -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/libpng/include/libpng16 -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/libpng/include/libpng16/include -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/libpng/include/libpng16/include/libpng16 -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/pugixml/include -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/tess2/include -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/uriparser/include -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/uriparser/include/uriparser -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/utf8/include -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/utf8/include/utf8 -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/zlib/include -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/openFrameworks -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/openFrameworks/app -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/openFrameworks/communication -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/openFrameworks/graphics -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/openFrameworks/video -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/openFrameworks/sound -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/openFrameworks/utils -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/openFrameworks/3d -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/openFrameworks/gl -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/openFrameworks/math -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/openFrameworks/types -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/openFrameworks/events -I./src -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxEmscripten/src -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxEmscripten/libs -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxEmscripten/libs/html5video -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxEmscripten/libs/html5video/include -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxEmscripten/libs/html5video/lib -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxEmscripten/libs/html5video/lib/emscripten -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxEmscripten/libs/html5audio -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxEmscripten/libs/html5audio/include -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxEmscripten/libs/html5audio/lib -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxEmscripten/libs/html5audio/lib/emscripten -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxEmscripten/libs/cors -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/src -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxLua -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxLua/libs -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxLua/libs/lua -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxLua/src -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxLua/src/bindings -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxLua/src/bindings/linuxarm -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxLua/src/bindings/ios -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxLua/src/bindings/desktop -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxMidi -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxMidi/libs -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxMidi/libs/pgmidi -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxMidi/libs/rtmidi -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxMidi/src -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxMidi/src/ios -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxMidi/src/desktop -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxPd -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxPd/libs -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxPd/libs/libpd -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxPd/libs/libpd/libs -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxPd/libs/libpd/libs/mingw64 -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/stdout -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/pd~ -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/bonk~ -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/lrshift~ -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/pique -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/fiddle~ -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/choice -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/sigmund~ -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/loop~ -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/bob~ -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxPd/libs/libpd/cpp -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxPd/libs/libpd/libpd_wrapper -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxPd/libs/libpd/libpd_wrapper/util -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxPd/src -MMD -MP -MF obj/emscripten/Release/src/ofApp.d -MT obj/emscripten/Release/src/ofApp.o -o obj/emscripten/Release/src/ofApp.o -c src/ofApp.cpp
+Compiling src/main.cpp
+/home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/em++ -c -O3 -DNDEBUG -std=c17 -fPIC -pthread -matomics -mbulk-memory -D__EMSCRIPTEN__ -DURI_STATIC_BUILD -DTARGET_EMSCRIPTEN -Wall -Wno-sign-compare -Wno-unused-variable -Wno-maybe-uninitialized -DPD -DUSEAPI_DUMMY -DPD_INTERNAL -DHAVE_UNISTD_H -DHAVE_ALLOCA_H -DLIBPD_EXTRA -DLIBPD_USE_STD_MUTEX -DPDINSTANCE -DPDTHREADS -DHAVE_LIBDL -D_DEFAULT_SOURCE -D_GNU_SOURCE -DHAVE_ENDIAN_H -U_LARGEFILE64_SOURCE -Wno-implicit-function-declaration -Wno-int-conversion -include alloca.h -DTARGET_STANDALONE -DGLM_FORCE_CTOR_INIT -DGLM_ENABLE_EXPERIMENTAL -Wall -std=c++23 -fPIC -Wno-warn-absolute-paths -pthread -matomics -mbulk-memory -I"/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxEmscripten/src" -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/FreeImage/include -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/brotli/include -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/brotli/include/brotli -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/fmt/include -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/fmt/include/include -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/fmt/include/include/fmt -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/freetype/include -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/freetype/include/freetype -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/freetype/include/freetype/internal -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/freetype/include/freetype/internal/services -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/freetype/include/freetype/config -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/glm/include -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/glm/include/glm -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/glm/include/glm/simd -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/glm/include/glm/detail -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/glm/include/glm/gtc -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/glm/include/glm/ext -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/glm/include/glm/gtx -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/json/include -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/json/include/nlohmann -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/kiss/include -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/libpng/include -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/libpng/include/libpng16 -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/libpng/include/libpng16/include -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/libpng/include/libpng16/include/libpng16 -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/pugixml/include -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/tess2/include -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/uriparser/include -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/uriparser/include/uriparser -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/utf8/include -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/utf8/include/utf8 -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/zlib/include -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/openFrameworks -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/openFrameworks/app -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/openFrameworks/communication -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/openFrameworks/graphics -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/openFrameworks/video -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/openFrameworks/sound -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/openFrameworks/utils -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/openFrameworks/3d -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/openFrameworks/gl -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/openFrameworks/math -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/openFrameworks/types -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/openFrameworks/events -I./src -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxEmscripten/src -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxEmscripten/libs -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxEmscripten/libs/html5video -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxEmscripten/libs/html5video/include -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxEmscripten/libs/html5video/lib -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxEmscripten/libs/html5video/lib/emscripten -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxEmscripten/libs/html5audio -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxEmscripten/libs/html5audio/include -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxEmscripten/libs/html5audio/lib -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxEmscripten/libs/html5audio/lib/emscripten -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxEmscripten/libs/cors -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/src -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxLua -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxLua/libs -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxLua/libs/lua -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxLua/src -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxLua/src/bindings -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxLua/src/bindings/linuxarm -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxLua/src/bindings/ios -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxLua/src/bindings/desktop -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxMidi -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxMidi/libs -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxMidi/libs/pgmidi -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxMidi/libs/rtmidi -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxMidi/src -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxMidi/src/ios -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxMidi/src/desktop -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxPd -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxPd/libs -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxPd/libs/libpd -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxPd/libs/libpd/libs -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxPd/libs/libpd/libs/mingw64 -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/stdout -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/pd~ -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/bonk~ -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/lrshift~ -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/pique -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/fiddle~ -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/choice -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/sigmund~ -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/loop~ -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/bob~ -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxPd/libs/libpd/cpp -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxPd/libs/libpd/libpd_wrapper -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxPd/libs/libpd/libpd_wrapper/util -I/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxPd/src -MMD -MP -MF obj/emscripten/Release/src/main.d -MT obj/emscripten/Release/src/main.o -o obj/emscripten/Release/src/main.o -c src/main.cpp
+warning: warning: unknown warning option '-Wno-maybe-uninitialized'; did you mean '-Wno-uninitialized'? [-Wunknown-warning-option]unknown warning option '-Wno-maybe-uninitialized'; did you mean '-Wno-uninitialized'? [-Wunknown-warning-option]
+
+In file included from src/ofApp.cpp:1:
+In file included from src/ofApp.h:4:
+In file included from /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/src/ofxOfelia.h:10:
+/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxPd/src/ofxPd.h:72:8: warning: 'ofxPd::init' hides overloaded virtual function [-Woverloaded-virtual]
+   72 |                 bool init(const int numOutChannels, const int numInChannels,
+      |                      ^
+/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxPd/libs/libpd/cpp/PdBase.hpp:114:18: note: hidden overloaded virtual function 'pd::PdBase::init' declared here: different number of parameters (4 vs 5)
+  114 |     virtual bool init(const int numInChannels, const int numOutChannels,
+      |                  ^
+In file included from src/ofApp.cpp:1:
+In file included from src/ofApp.h:4:
+In file included from /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/src/ofxOfelia.h:10:
+/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxPd/src/ofxPd.h:103:13: warning: 'ofxPd::openPatch' hides overloaded virtual function [-Woverloaded-virtual]
+  103 |                 pd::Patch openPatch(const std::string &patch);
+      |                           ^
+/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxPd/libs/libpd/cpp/PdBase.hpp:256:23: note: hidden overloaded virtual function 'pd::PdBase::openPatch' declared here: different number of parameters (2 vs 1)
+  256 |     virtual pd::Patch openPatch(const std::string &patch,
+      |                       ^
+In file included from src/main.cpp:2:
+In file included from src/ofApp.h:4:
+In file included from /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/src/ofxOfelia.h:10:
+/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxPd/src/ofxPd.h:72:8: warning: 'ofxPd::init' hides overloaded virtual function [-Woverloaded-virtual]
+   72 |                 bool init(const int numOutChannels, const int numInChannels,
+      |                      ^
+/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxPd/libs/libpd/cpp/PdBase.hpp:114:18: note: hidden overloaded virtual function 'pd::PdBase::init' declared here: different number of parameters (4 vs 5)
+  114 |     virtual bool init(const int numInChannels, const int numOutChannels,
+      |                  ^
+In file included from src/main.cpp:2:
+In file included from src/ofApp.h:4:
+In file included from /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/src/ofxOfelia.h:10:
+/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxPd/src/ofxPd.h:103:13: warning: 'ofxPd::openPatch' hides overloaded virtual function [-Woverloaded-virtual]
+  103 |                 pd::Patch openPatch(const std::string &patch);
+      |                           ^
+/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/libs/ofxPd/libs/libpd/cpp/PdBase.hpp:256:23: note: hidden overloaded virtual function 'pd::PdBase::openPatch' declared here: different number of parameters (2 vs 1)
+  256 |     virtual pd::Patch openPatch(const std::string &patch,
+      |                       ^
+3 warnings generated.
+3 warnings generated.
+🔗 Linking bin/em/filter2309/index.html for emscripten
+/home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/em++ -o bin/em/filter2309/index.html -O3 -s INITIAL_MEMORY=134217728 -s ALLOW_MEMORY_GROWTH=1 -s WASM=1 obj/emscripten/Release/src/ofApp.o obj/emscripten/Release/src/main.o  /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxEmscripten/src/ofxEmscriptenVideoGrabber.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxEmscripten/src/ofxAppEmscriptenWindow.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxEmscripten/src/ofxEmscriptenSoundStream.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxEmscripten/src/ofxEmscriptenSoundPlayer.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxEmscripten/src/ofxEmscriptenVideoPlayer.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxEmscripten/src/ofxEmscriptenURLFileLoader.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/src/ofxOfeliaDefine.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/src/ofxOfeliaClient.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/src/pd_tilde_setup_stub.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/src/ofxOfeliaIO.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/src/ofxOfeliaGet.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/src/ofxOfeliaSignal.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/src/ofxOfeliaThreading.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/src/ofxOfelia.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/src/ofxOfeliaLog.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/src/ofxOfeliaExists.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/src/ofxOfeliaCreator.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/src/ofxOfeliaLua.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/src/ofxOfeliaSet.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/src/ofxOfeliaEvents.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/src/ofxOfeliaFunction.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/src/ofxOfeliaPdBindings.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/src/ofxOfeliaTextBuf.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/src/ofxOfeliaSetup.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/src/ofxOfeliaData.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/src/ofxOfeliaGL.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxLua/libs/lua/lutf8lib.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxLua/libs/lua/loslib.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxLua/libs/lua/lstring.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxLua/libs/lua/lobject.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxLua/libs/lua/lbaselib.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxLua/libs/lua/lcorolib.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxLua/libs/lua/lcode.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxLua/libs/lua/lvm.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxLua/libs/lua/lparser.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxLua/libs/lua/lauxlib.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxLua/libs/lua/ltm.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxLua/libs/lua/ldebug.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxLua/libs/lua/lstrlib.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxLua/libs/lua/lgc.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxLua/libs/lua/ldump.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxLua/libs/lua/lstate.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxLua/libs/lua/lapi.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxLua/libs/lua/lzio.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxLua/libs/lua/lctype.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxLua/libs/lua/lfunc.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxLua/libs/lua/ltablib.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxLua/libs/lua/llex.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxLua/libs/lua/lundump.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxLua/libs/lua/linit.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxLua/libs/lua/loadlib.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxLua/libs/lua/ldblib.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxLua/libs/lua/lmathlib.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxLua/libs/lua/ltable.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxLua/libs/lua/lmem.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxLua/libs/lua/ldo.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxLua/libs/lua/lbitlib.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxLua/libs/lua/lopcodes.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxLua/libs/lua/liolib.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxLua/src/ofxLua.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxLua/src/ofxLuaFileWriter.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxLua/src/bindings/ios/ofBindings.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxLua/src/bindings/glmBindings.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxMidi/libs/rtmidi/RtMidi.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxMidi/src/ofxMidiIn.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxMidi/src/ofxBaseMidi.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxMidi/src/ofxMidi.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxMidi/src/desktop/ofxRtMidiIn.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxMidi/src/desktop/ofxRtMidiOut.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxMidi/src/ofxMidiOut.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxMidi/src/ofxMidiClock.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxMidi/src/ofxMidiMessage.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxMidi/src/ofxMidiTimecode.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/stdout/stdout.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/bonk~/bonk~.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/lrshift~/lrshift~.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/pique/pique.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/fiddle~/fiddle~.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/choice/choice.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/sigmund~/sigmund~.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/loop~/loop~.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/bob~/bob~.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/d_delay.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/m_pd.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/x_array.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/g_canvas.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/d_misc.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/d_math.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/g_text.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/d_dac.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/m_binbuf.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/g_all_guis.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/d_resample.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/x_acoustics.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/d_filter.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/d_global.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/x_time.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/g_rtext.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/x_vexp_if.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/s_audio.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/x_net.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/x_midi.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/x_interface.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/x_scalar.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/d_osc.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/x_file.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/x_arithmetic.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/m_memory.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/d_soundfile.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/s_net.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/d_fft.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/m_sched.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/g_undo.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/g_slider.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/m_class.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/d_ctl.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/g_guiconnect.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/s_path.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/x_gui.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/g_vumeter.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/g_editor.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/x_text.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/g_io.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/s_main.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/m_conf.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/m_obj.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/g_scalar.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/g_numbox.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/g_array.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/g_template.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/s_loader.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/s_inter_gui.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/x_connective.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/m_glob.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/x_list.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/d_arithmetic.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/s_audio_dummy.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/g_toggle.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/g_traversal.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/d_ugen.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/g_radio.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/s_print.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/d_fft_fftsg.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/x_misc.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/d_array.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/g_editor_extras.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/g_readwrite.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/d_soundfile_next.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/x_vexp_fun.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/x_vexp.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/m_atom.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/g_graph.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/s_inter.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/g_mycanvas.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/d_soundfile_aiff.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/g_clone.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/d_soundfile_caf.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/g_bang.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/d_soundfile_wave.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src/s_utf8.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/libpd_wrapper/util/z_ringbuffer.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/libpd_wrapper/util/z_print_util.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/libpd_wrapper/util/z_queued.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/libpd_wrapper/z_hooks.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/libpd_wrapper/z_libpd.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/libpd_wrapper/s_libpdmidi.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/libs/libpd/libpd_wrapper/x_libpdreceive.o /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/obj/emscripten/Release/ofxOfelia/libs/ofxPd/src/ofxPd.o  /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/openFrameworksCompiled/lib/emscripten/libopenFrameworks.o  --emrun --bind --profiling-funcs --preload-file bin/data@data --use-port=emdawnwebgpu -s MAX_WEBGL_VERSION=2 -s WEBGL2_BACKWARDS_COMPATIBILITY_EMULATION=1 -s FULL_ES3 -s AUTO_NATIVE_LIBRARIES=1 -s AUTO_JS_LIBRARIES=1 -s VERBOSE=1 -pthread -matomics -mbulk-memory --js-library /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxEmscripten/libs/html5video/lib/emscripten/library_html5video.js --js-library /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxEmscripten/libs/html5audio/lib/emscripten/library_html5audio.js -DEMCC_FORCE_STDLIBS=1 -s EXPORT_ALL=1 -s NO_DYNAMIC_EXECUTION=1 -s ABORT_ON_WASM_EXCEPTIONS=0 -s FILESYSTEM=1 -s MINIFY_HTML=0 -s DYNAMIC_EXECUTION=1 -s USE_GLFW=3 -lglfw -s EXPORTED_RUNTIME_METHODS=['ccall','cwrap','FS','UTF8ToString','stringToUTF8','lengthBytesUTF8'] -sERROR_ON_UNDEFINED_SYMBOLS=1 --shell-file /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/openFrameworksCompiled/project/emscripten/template.html -sFORCE_FILESYSTEM=1 /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/FreeImage/lib/emscripten/WASM/libfreeimage.a /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/brotli/lib/emscripten/WASM/libbrotlicommon.a /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/brotli/lib/emscripten/WASM/libbrotlidec.a /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/brotli/lib/emscripten/WASM/libbrotlienc.a /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/fmt/lib/emscripten/WASM/libfmt.a /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/freetype/lib/emscripten/WASM/libfreetype.a /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/libpng/lib/emscripten/WASM/libpng16.a /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/pugixml/lib/emscripten/WASM/libpugixml.a /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/tess2/lib/emscripten/WASM/libtess2.a /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/uriparser/lib/emscripten/WASM/uriparser.a /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/zlib/lib/emscripten/WASM/zlib.a
+em++: warning: -pthread + ALLOW_MEMORY_GROWTH may run non-wasm code slowly, consider -sGROWABLE_ARRAYBUFFERS=2 [-Wpthreads-mem-growth]
+pre-processing JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libint53.js
+pre-processing JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libcore.js
+pre-processing JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libsigs.js
+pre-processing JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libccall.js
+pre-processing JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libaddfunction.js
+pre-processing JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libgetvalue.js
+pre-processing JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libmath.js
+pre-processing JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libpath.js
+pre-processing JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libstrings.js
+pre-processing JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libhtml5.js
+pre-processing JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libstack_trace.js
+pre-processing JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libwasi.js
+pre-processing JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libeventloop.js
+pre-processing JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libpromise.js
+pre-processing JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libexceptions.js
+pre-processing JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libunwind.js
+pre-processing JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libbrowser.js
+pre-processing JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libwget.js
+pre-processing JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libtime.js
+pre-processing JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libsyscall.js
+pre-processing JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libfs_shared.js
+pre-processing JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libfs.js
+pre-processing JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libmemfs.js
+pre-processing JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libtty.js
+pre-processing JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libpipefs.js
+pre-processing JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libsockfs.js
+pre-processing JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libepoll.js
+pre-processing JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libwebgl.js
+pre-processing JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libhtml5_webgl.js
+pre-processing JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libopenal.js
+pre-processing JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libglut.js
+pre-processing JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libxlib.js
+pre-processing JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libegl.js
+pre-processing JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libuuid.js
+pre-processing JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libglew.js
+pre-processing JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libidbstore.js
+pre-processing JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libasync.js
+pre-processing JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libsdl.js
+pre-processing JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libglfw.js
+pre-processing JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libatomic.js
+pre-processing JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libwebgl2.js
+pre-processing JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/liblegacy.js
+pre-processing JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libpthread.js
+pre-processing JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libembind.js
+pre-processing JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libemval.js
+pre-processing JS library: /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxEmscripten/libs/html5video/lib/emscripten/library_html5video.js
+pre-processing JS library: /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxEmscripten/libs/html5audio/lib/emscripten/library_html5audio.js
+pre-processing JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/cache/ports/emdawnwebgpu/emdawnwebgpu_pkg/webgpu/src/library_webgpu_enum_tables.js
+pre-processing JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/cache/ports/emdawnwebgpu/emdawnwebgpu_pkg/webgpu/src/library_webgpu_generated_struct_info.js
+pre-processing JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/cache/ports/emdawnwebgpu/emdawnwebgpu_pkg/webgpu/src/library_webgpu_generated_sig_info.js
+pre-processing JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/cache/ports/emdawnwebgpu/emdawnwebgpu_pkg/webgpu/src/library_webgpu.js
+exectuing system JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libint53.js
+exectuing system JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libcore.js
+exectuing system JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libsigs.js
+exectuing system JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libccall.js
+exectuing system JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libaddfunction.js
+exectuing system JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libgetvalue.js
+exectuing system JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libmath.js
+exectuing system JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libpath.js
+exectuing system JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libstrings.js
+exectuing system JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libhtml5.js
+exectuing system JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libstack_trace.js
+exectuing system JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libwasi.js
+exectuing system JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libeventloop.js
+exectuing system JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libpromise.js
+exectuing system JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libexceptions.js
+exectuing system JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libunwind.js
+exectuing system JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libbrowser.js
+exectuing system JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libwget.js
+exectuing system JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libtime.js
+exectuing system JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libsyscall.js
+exectuing system JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libfs_shared.js
+exectuing system JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libfs.js
+exectuing system JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libmemfs.js
+exectuing system JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libtty.js
+exectuing system JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libpipefs.js
+exectuing system JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libsockfs.js
+exectuing system JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libepoll.js
+exectuing system JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libwebgl.js
+exectuing system JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libhtml5_webgl.js
+exectuing system JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libopenal.js
+exectuing system JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libglut.js
+exectuing system JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libxlib.js
+exectuing system JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libegl.js
+exectuing system JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libuuid.js
+exectuing system JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libglew.js
+exectuing system JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libidbstore.js
+exectuing system JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libasync.js
+exectuing system JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libsdl.js
+exectuing system JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libglfw.js
+exectuing system JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libatomic.js
+exectuing system JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libwebgl2.js
+exectuing system JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/liblegacy.js
+exectuing system JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libpthread.js
+exectuing system JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libembind.js
+exectuing system JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/src/lib/libemval.js
+executing user JS library: /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxEmscripten/libs/html5video/lib/emscripten/library_html5video.js
+executing user JS library: /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxEmscripten/libs/html5audio/lib/emscripten/library_html5audio.js
+executing user JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/cache/ports/emdawnwebgpu/emdawnwebgpu_pkg/webgpu/src/library_webgpu_enum_tables.js
+executing user JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/cache/ports/emdawnwebgpu/emdawnwebgpu_pkg/webgpu/src/library_webgpu_generated_struct_info.js
+executing user JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/cache/ports/emdawnwebgpu/emdawnwebgpu_pkg/webgpu/src/library_webgpu_generated_sig_info.js
+executing user JS library: /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/cache/ports/emdawnwebgpu/emdawnwebgpu_pkg/webgpu/src/library_webgpu.js
+adding $ExitStatus (referenced by root reference (e.g. compiled C/C++ code))
+adding $HEAP16 (referenced by root reference (e.g. compiled C/C++ code))
+adding $HEAP32 (referenced by root reference (e.g. compiled C/C++ code))
+adding $HEAP64 (referenced by root reference (e.g. compiled C/C++ code))
+adding $HEAP8 (referenced by root reference (e.g. compiled C/C++ code))
+adding $HEAPF32 (referenced by root reference (e.g. compiled C/C++ code))
+adding $HEAPF64 (referenced by root reference (e.g. compiled C/C++ code))
+adding $HEAPU16 (referenced by root reference (e.g. compiled C/C++ code))
+adding $HEAPU32 (referenced by root reference (e.g. compiled C/C++ code))
+adding $HEAPU64 (referenced by root reference (e.g. compiled C/C++ code))
+adding $HEAPU8 (referenced by root reference (e.g. compiled C/C++ code))
+adding $PThread (referenced by root reference (e.g. compiled C/C++ code))
+adding $terminateWorker (referenced by $PThread, referenced by root reference (e.g. compiled C/C++ code))
+adding $cleanupThread (referenced by $PThread, referenced by root reference (e.g. compiled C/C++ code))
+adding $addOnPreRun (referenced by $PThread, referenced by root reference (e.g. compiled C/C++ code))
+adding $onPreRuns (referenced by $addOnPreRun, referenced by $PThread, referenced by root reference (e.g. compiled C/C++ code))
+adding $callRuntimeCallbacks (referenced by $onPreRuns, referenced by $addOnPreRun, referenced by $PThread, referenced by root reference (e.g. compiled C/C++ code))
+adding $spawnThread (referenced by $PThread, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _exit -> $exitJS
+adding exit (referenced by $PThread, referenced by root reference (e.g. compiled C/C++ code))
+adding $exitJS (referenced by exit, referenced by $PThread, referenced by root reference (e.g. compiled C/C++ code))
+adding proc_exit (referenced by $exitJS, referenced by exit, referenced by $PThread, referenced by root reference (e.g. compiled C/C++ code))
+adding $keepRuntimeAlive (referenced by proc_exit, referenced by $exitJS, referenced by exit, referenced by $PThread, referenced by root reference (e.g. compiled C/C++ code))
+adding $runtimeKeepaliveCounter (referenced by $keepRuntimeAlive, referenced by proc_exit, referenced by $exitJS, referenced by exit, referenced by $PThread, referenced by root reference (e.g. compiled C/C++ code))
+adding $proxyToMainThread (referenced by proc_exit, referenced by $exitJS, referenced by exit, referenced by $PThread, referenced by root reference (e.g. compiled C/C++ code))
+adding $stackSave (referenced by $proxyToMainThread, referenced by proc_exit, referenced by $exitJS, referenced by exit, referenced by $PThread, referenced by root reference (e.g. compiled C/C++ code))
+adding $stackRestore (referenced by $proxyToMainThread, referenced by proc_exit, referenced by $exitJS, referenced by exit, referenced by $PThread, referenced by root reference (e.g. compiled C/C++ code))
+adding $stackAlloc (referenced by $proxyToMainThread, referenced by proc_exit, referenced by $exitJS, referenced by exit, referenced by $PThread, referenced by root reference (e.g. compiled C/C++ code))
+adding $exitOnMainThread (referenced by $exitJS, referenced by exit, referenced by $PThread, referenced by root reference (e.g. compiled C/C++ code))
+adding $waitAsyncPolyfilled (referenced by $PThread, referenced by root reference (e.g. compiled C/C++ code))
+adding $addOnExit (referenced by root reference (e.g. compiled C/C++ code))
+adding $onExits (referenced by $addOnExit, referenced by root reference (e.g. compiled C/C++ code))
+adding $addOnPostRun (referenced by root reference (e.g. compiled C/C++ code))
+adding $onPostRuns (referenced by $addOnPostRun, referenced by root reference (e.g. compiled C/C++ code))
+adding $establishStackSpace (referenced by root reference (e.g. compiled C/C++ code))
+adding $getValue (referenced by root reference (e.g. compiled C/C++ code))
+adding $invokeEntryPoint (referenced by root reference (e.g. compiled C/C++ code))
+adding $getWasmTableEntry (referenced by $invokeEntryPoint, referenced by root reference (e.g. compiled C/C++ code))
+adding $wasmTableMirror (referenced by $getWasmTableEntry, referenced by $invokeEntryPoint, referenced by root reference (e.g. compiled C/C++ code))
+native alias: wasmTable -> __indirect_function_table
+adding $wasmTable (referenced by $getWasmTableEntry, referenced by $invokeEntryPoint, referenced by root reference (e.g. compiled C/C++ code))
+adding $noExitRuntime (referenced by root reference (e.g. compiled C/C++ code))
+adding $registerTLSInit (referenced by root reference (e.g. compiled C/C++ code))
+adding $setValue (referenced by root reference (e.g. compiled C/C++ code))
+adding $wasmMemory (referenced by root reference (e.g. compiled C/C++ code))
+adding __assert_fail (referenced by root reference (e.g. compiled C/C++ code))
+adding $UTF8ToString (referenced by __assert_fail, referenced by root reference (e.g. compiled C/C++ code))
+adding $UTF8ArrayToString (referenced by $UTF8ToString, referenced by __assert_fail, referenced by root reference (e.g. compiled C/C++ code))
+adding $UTF8Decoder (referenced by $UTF8ArrayToString, referenced by $UTF8ToString, referenced by __assert_fail, referenced by root reference (e.g. compiled C/C++ code))
+adding $findStringEnd (referenced by $UTF8ArrayToString, referenced by $UTF8ToString, referenced by __assert_fail, referenced by root reference (e.g. compiled C/C++ code))
+adding __call_sighandler (referenced by root reference (e.g. compiled C/C++ code))
+adding __cxa_throw (referenced by root reference (e.g. compiled C/C++ code))
+adding $ExceptionInfo (referenced by __cxa_throw, referenced by root reference (e.g. compiled C/C++ code))
+adding $uncaughtExceptionCount (referenced by __cxa_throw, referenced by root reference (e.g. compiled C/C++ code))
+adding _Unwind_RaiseException (referenced by __cxa_throw, referenced by root reference (e.g. compiled C/C++ code))
+adding __pthread_create_js (referenced by root reference (e.g. compiled C/C++ code))
+adding $pthreadCreateProxied (referenced by __pthread_create_js, referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_has_threading_support (referenced by __pthread_create_js, referenced by root reference (e.g. compiled C/C++ code))
+adding __syscall_accept4 (referenced by root reference (e.g. compiled C/C++ code))
+adding $getSocketFromFD (referenced by __syscall_accept4, referenced by root reference (e.g. compiled C/C++ code))
+adding $SOCKFS (referenced by $getSocketFromFD, referenced by __syscall_accept4, referenced by root reference (e.g. compiled C/C++ code))
+adding $FS (referenced by $SOCKFS, referenced by $getSocketFromFD, referenced by __syscall_accept4, referenced by root reference (e.g. compiled C/C++ code))
+adding $randomFill (referenced by $FS, referenced by $SOCKFS, referenced by $getSocketFromFD, referenced by __syscall_accept4, referenced by root reference (e.g. compiled C/C++ code))
+adding $initRandomFill (referenced by $randomFill, referenced by $FS, referenced by $SOCKFS, referenced by $getSocketFromFD, referenced by __syscall_accept4, referenced by root reference (e.g. compiled C/C++ code))
+adding $PATH (referenced by $FS, referenced by $SOCKFS, referenced by $getSocketFromFD, referenced by __syscall_accept4, referenced by root reference (e.g. compiled C/C++ code))
+adding $PATH_FS (referenced by $FS, referenced by $SOCKFS, referenced by $getSocketFromFD, referenced by __syscall_accept4, referenced by root reference (e.g. compiled C/C++ code))
+adding $TTY (referenced by $FS, referenced by $SOCKFS, referenced by $getSocketFromFD, referenced by __syscall_accept4, referenced by root reference (e.g. compiled C/C++ code))
+adding $FS_stdin_getChar (referenced by $TTY, referenced by $FS, referenced by $SOCKFS, referenced by $getSocketFromFD, referenced by __syscall_accept4, referenced by root reference (e.g. compiled C/C++ code))
+adding $FS_stdin_getChar_buffer (referenced by $FS_stdin_getChar, referenced by $TTY, referenced by $FS, referenced by $SOCKFS, referenced by $getSocketFromFD, referenced by __syscall_accept4, referenced by root reference (e.g. compiled C/C++ code))
+adding $intArrayFromString (referenced by $FS_stdin_getChar, referenced by $TTY, referenced by $FS, referenced by $SOCKFS, referenced by $getSocketFromFD, referenced by __syscall_accept4, referenced by root reference (e.g. compiled C/C++ code))
+adding $lengthBytesUTF8 (referenced by $intArrayFromString, referenced by $FS_stdin_getChar, referenced by $TTY, referenced by $FS, referenced by $SOCKFS, referenced by $getSocketFromFD, referenced by __syscall_accept4, referenced by root reference (e.g. compiled C/C++ code))
+adding $stringToUTF8Array (referenced by $intArrayFromString, referenced by $FS_stdin_getChar, referenced by $TTY, referenced by $FS, referenced by $SOCKFS, referenced by $getSocketFromFD, referenced by __syscall_accept4, referenced by root reference (e.g. compiled C/C++ code))
+adding $MEMFS (referenced by $FS, referenced by $SOCKFS, referenced by $getSocketFromFD, referenced by __syscall_accept4, referenced by root reference (e.g. compiled C/C++ code))
+adding $mmapAlloc (referenced by $MEMFS, referenced by $FS, referenced by $SOCKFS, referenced by $getSocketFromFD, referenced by __syscall_accept4, referenced by root reference (e.g. compiled C/C++ code))
+adding $zeroMemory (referenced by $mmapAlloc, referenced by $MEMFS, referenced by $FS, referenced by $SOCKFS, referenced by $getSocketFromFD, referenced by __syscall_accept4, referenced by root reference (e.g. compiled C/C++ code))
+adding $alignMemory (referenced by $mmapAlloc, referenced by $MEMFS, referenced by $FS, referenced by $SOCKFS, referenced by $getSocketFromFD, referenced by __syscall_accept4, referenced by root reference (e.g. compiled C/C++ code))
+adding $FS_modeStringToFlags (referenced by $FS, referenced by $SOCKFS, referenced by $getSocketFromFD, referenced by __syscall_accept4, referenced by root reference (e.g. compiled C/C++ code))
+adding $FS_fileDataToTypedArray (referenced by $FS, referenced by $SOCKFS, referenced by $getSocketFromFD, referenced by __syscall_accept4, referenced by root reference (e.g. compiled C/C++ code))
+adding $FS_getMode (referenced by $FS, referenced by $SOCKFS, referenced by $getSocketFromFD, referenced by __syscall_accept4, referenced by root reference (e.g. compiled C/C++ code))
+adding $FS_createPreloadedFile (referenced by $FS, referenced by $SOCKFS, referenced by $getSocketFromFD, referenced by __syscall_accept4, referenced by root reference (e.g. compiled C/C++ code))
+adding $FS_preloadFile (referenced by $FS_createPreloadedFile, referenced by $FS, referenced by $SOCKFS, referenced by $getSocketFromFD, referenced by __syscall_accept4, referenced by root reference (e.g. compiled C/C++ code))
+adding $asyncLoad (referenced by $FS_preloadFile, referenced by $FS_createPreloadedFile, referenced by $FS, referenced by $SOCKFS, referenced by $getSocketFromFD, referenced by __syscall_accept4, referenced by root reference (e.g. compiled C/C++ code))
+adding $FS_createDataFile (referenced by $FS_preloadFile, referenced by $FS_createPreloadedFile, referenced by $FS, referenced by $SOCKFS, referenced by $getSocketFromFD, referenced by __syscall_accept4, referenced by root reference (e.g. compiled C/C++ code))
+adding $getUniqueRunDependency (referenced by $FS_preloadFile, referenced by $FS_createPreloadedFile, referenced by $FS, referenced by $SOCKFS, referenced by $getSocketFromFD, referenced by __syscall_accept4, referenced by root reference (e.g. compiled C/C++ code))
+adding $addRunDependency (referenced by $FS_preloadFile, referenced by $FS_createPreloadedFile, referenced by $FS, referenced by $SOCKFS, referenced by $getSocketFromFD, referenced by __syscall_accept4, referenced by root reference (e.g. compiled C/C++ code))
+adding $runDependencies (referenced by $addRunDependency, referenced by $FS_preloadFile, referenced by $FS_createPreloadedFile, referenced by $FS, referenced by $SOCKFS, referenced by $getSocketFromFD, referenced by __syscall_accept4, referenced by root reference (e.g. compiled C/C++ code))
+adding $resolveRunDependencies (referenced by $runDependencies, referenced by $addRunDependency, referenced by $FS_preloadFile, referenced by $FS_createPreloadedFile, referenced by $FS, referenced by $SOCKFS, referenced by $getSocketFromFD, referenced by __syscall_accept4, referenced by root reference (e.g. compiled C/C++ code))
+adding $dependenciesPromise (referenced by $resolveRunDependencies, referenced by $runDependencies, referenced by $addRunDependency, referenced by $FS_preloadFile, referenced by $FS_createPreloadedFile, referenced by $FS, referenced by $SOCKFS, referenced by $getSocketFromFD, referenced by __syscall_accept4, referenced by root reference (e.g. compiled C/C++ code))
+adding $removeRunDependency (referenced by $addRunDependency, referenced by $FS_preloadFile, referenced by $FS_createPreloadedFile, referenced by $FS, referenced by $SOCKFS, referenced by $getSocketFromFD, referenced by __syscall_accept4, referenced by root reference (e.g. compiled C/C++ code))
+adding $dependenciesPromiseResolve (referenced by $removeRunDependency, referenced by $addRunDependency, referenced by $FS_preloadFile, referenced by $FS_createPreloadedFile, referenced by $FS, referenced by $SOCKFS, referenced by $getSocketFromFD, referenced by __syscall_accept4, referenced by root reference (e.g. compiled C/C++ code))
+adding $FS_handledByPreloadPlugin (referenced by $FS_preloadFile, referenced by $FS_createPreloadedFile, referenced by $FS, referenced by $SOCKFS, referenced by $getSocketFromFD, referenced by __syscall_accept4, referenced by root reference (e.g. compiled C/C++ code))
+adding $preloadPlugins (referenced by $FS_handledByPreloadPlugin, referenced by $FS_preloadFile, referenced by $FS_createPreloadedFile, referenced by $FS, referenced by $SOCKFS, referenced by $getSocketFromFD, referenced by __syscall_accept4, referenced by root reference (e.g. compiled C/C++ code))
+adding $writeSockaddr (referenced by __syscall_accept4, referenced by root reference (e.g. compiled C/C++ code))
+adding $inetPton4 (referenced by $writeSockaddr, referenced by __syscall_accept4, referenced by root reference (e.g. compiled C/C++ code))
+adding $inetPton6 (referenced by $writeSockaddr, referenced by __syscall_accept4, referenced by root reference (e.g. compiled C/C++ code))
+adding $DNS (referenced by $writeSockaddr, referenced by __syscall_accept4, referenced by root reference (e.g. compiled C/C++ code))
+adding __syscall_bind (referenced by root reference (e.g. compiled C/C++ code))
+adding $getSocketAddress (referenced by __syscall_bind, referenced by root reference (e.g. compiled C/C++ code))
+adding $readSockaddr (referenced by $getSocketAddress, referenced by __syscall_bind, referenced by root reference (e.g. compiled C/C++ code))
+adding $inetNtop4 (referenced by $readSockaddr, referenced by $getSocketAddress, referenced by __syscall_bind, referenced by root reference (e.g. compiled C/C++ code))
+adding $inetNtop6 (referenced by $readSockaddr, referenced by $getSocketAddress, referenced by __syscall_bind, referenced by root reference (e.g. compiled C/C++ code))
+adding __syscall_chdir (referenced by root reference (e.g. compiled C/C++ code))
+adding $SYSCALLS (referenced by __syscall_chdir, referenced by root reference (e.g. compiled C/C++ code))
+adding __syscall_chmod (referenced by root reference (e.g. compiled C/C++ code))
+adding __syscall_connect (referenced by root reference (e.g. compiled C/C++ code))
+adding __syscall_dup3 (referenced by root reference (e.g. compiled C/C++ code))
+adding __syscall_faccessat (referenced by root reference (e.g. compiled C/C++ code))
+adding __syscall_fchmod (referenced by root reference (e.g. compiled C/C++ code))
+adding __syscall_fchmodat2 (referenced by root reference (e.g. compiled C/C++ code))
+adding __syscall_fcntl64 (referenced by root reference (e.g. compiled C/C++ code))
+js alias: syscallGetVarargP -> $syscallGetVarargI
+adding $syscallGetVarargP (referenced by __syscall_fcntl64, referenced by root reference (e.g. compiled C/C++ code))
+adding $syscallGetVarargI (referenced by $syscallGetVarargP, referenced by __syscall_fcntl64, referenced by root reference (e.g. compiled C/C++ code))
+adding __syscall_fstat64 (referenced by root reference (e.g. compiled C/C++ code))
+adding __syscall_ftruncate64 (referenced by root reference (e.g. compiled C/C++ code))
+adding $bigintToI53Checked (referenced by __syscall_ftruncate64, referenced by root reference (e.g. compiled C/C++ code))
+adding $INT53_MAX (referenced by $bigintToI53Checked, referenced by __syscall_ftruncate64, referenced by root reference (e.g. compiled C/C++ code))
+adding $INT53_MIN (referenced by $bigintToI53Checked, referenced by __syscall_ftruncate64, referenced by root reference (e.g. compiled C/C++ code))
+adding __syscall_getcwd (referenced by root reference (e.g. compiled C/C++ code))
+adding $stringToUTF8 (referenced by __syscall_getcwd, referenced by root reference (e.g. compiled C/C++ code))
+adding __syscall_getdents64 (referenced by root reference (e.g. compiled C/C++ code))
+adding __syscall_getegid32 (referenced by root reference (e.g. compiled C/C++ code))
+adding __syscall_geteuid32 (referenced by root reference (e.g. compiled C/C++ code))
+adding __syscall_getpeername (referenced by root reference (e.g. compiled C/C++ code))
+adding __syscall_getsockopt (referenced by root reference (e.g. compiled C/C++ code))
+adding __syscall_getuid32 (referenced by root reference (e.g. compiled C/C++ code))
+adding __syscall_ioctl (referenced by root reference (e.g. compiled C/C++ code))
+adding __syscall_listen (referenced by root reference (e.g. compiled C/C++ code))
+adding __syscall_lstat64 (referenced by root reference (e.g. compiled C/C++ code))
+adding __syscall_mkdirat (referenced by root reference (e.g. compiled C/C++ code))
+adding __syscall_newfstatat (referenced by root reference (e.g. compiled C/C++ code))
+adding __syscall_openat (referenced by root reference (e.g. compiled C/C++ code))
+adding __syscall_poll (referenced by root reference (e.g. compiled C/C++ code))
+adding $doPollSync (referenced by __syscall_poll, referenced by root reference (e.g. compiled C/C++ code))
+adding $pollOne (referenced by $doPollSync, referenced by __syscall_poll, referenced by root reference (e.g. compiled C/C++ code))
+adding $doPollAsync (referenced by __syscall_poll, referenced by root reference (e.g. compiled C/C++ code))
+adding __syscall_readlinkat (referenced by root reference (e.g. compiled C/C++ code))
+adding __syscall_recvfrom (referenced by root reference (e.g. compiled C/C++ code))
+adding __syscall_renameat (referenced by root reference (e.g. compiled C/C++ code))
+adding __syscall_rmdir (referenced by root reference (e.g. compiled C/C++ code))
+adding __syscall_sendto (referenced by root reference (e.g. compiled C/C++ code))
+adding __syscall_setsockopt (referenced by root reference (e.g. compiled C/C++ code))
+adding __syscall_socket (referenced by root reference (e.g. compiled C/C++ code))
+adding __syscall_stat64 (referenced by root reference (e.g. compiled C/C++ code))
+adding __syscall_unlinkat (referenced by root reference (e.g. compiled C/C++ code))
+adding _abort_js (referenced by root reference (e.g. compiled C/C++ code))
+adding _embind_register_bigint (referenced by root reference (e.g. compiled C/C++ code))
+adding $AsciiToString (referenced by _embind_register_bigint, referenced by root reference (e.g. compiled C/C++ code))
+adding $registerType (referenced by _embind_register_bigint, referenced by root reference (e.g. compiled C/C++ code))
+adding $sharedRegisterType (referenced by $registerType, referenced by _embind_register_bigint, referenced by root reference (e.g. compiled C/C++ code))
+adding $awaitingDependencies (referenced by $sharedRegisterType, referenced by $registerType, referenced by _embind_register_bigint, referenced by root reference (e.g. compiled C/C++ code))
+adding $registeredTypes (referenced by $sharedRegisterType, referenced by $registerType, referenced by _embind_register_bigint, referenced by root reference (e.g. compiled C/C++ code))
+adding $typeDependencies (referenced by $sharedRegisterType, referenced by $registerType, referenced by _embind_register_bigint, referenced by root reference (e.g. compiled C/C++ code))
+adding $throwBindingError (referenced by $sharedRegisterType, referenced by $registerType, referenced by _embind_register_bigint, referenced by root reference (e.g. compiled C/C++ code))
+adding $BindingError (referenced by $throwBindingError, referenced by $sharedRegisterType, referenced by $registerType, referenced by _embind_register_bigint, referenced by root reference (e.g. compiled C/C++ code))
+adding $integerReadValueFromPointer (referenced by _embind_register_bigint, referenced by root reference (e.g. compiled C/C++ code))
+adding _embind_register_bool (referenced by root reference (e.g. compiled C/C++ code))
+adding _embind_register_emval (referenced by root reference (e.g. compiled C/C++ code))
+adding $EmValType (referenced by _embind_register_emval, referenced by root reference (e.g. compiled C/C++ code))
+adding _emval_decref (referenced by $EmValType, referenced by _embind_register_emval, referenced by root reference (e.g. compiled C/C++ code))
+adding $emval_freelist (referenced by _emval_decref, referenced by $EmValType, referenced by _embind_register_emval, referenced by root reference (e.g. compiled C/C++ code))
+adding $emval_handles (referenced by _emval_decref, referenced by $EmValType, referenced by _embind_register_emval, referenced by root reference (e.g. compiled C/C++ code))
+adding $Emval (referenced by $EmValType, referenced by _embind_register_emval, referenced by root reference (e.g. compiled C/C++ code))
+adding $readPointer (referenced by $EmValType, referenced by _embind_register_emval, referenced by root reference (e.g. compiled C/C++ code))
+adding _embind_register_float (referenced by root reference (e.g. compiled C/C++ code))
+adding $floatReadValueFromPointer (referenced by _embind_register_float, referenced by root reference (e.g. compiled C/C++ code))
+adding _embind_register_integer (referenced by root reference (e.g. compiled C/C++ code))
+adding _embind_register_memory_view (referenced by root reference (e.g. compiled C/C++ code))
+adding _embind_register_std_string (referenced by root reference (e.g. compiled C/C++ code))
+adding _embind_register_std_wstring (referenced by root reference (e.g. compiled C/C++ code))
+adding $UTF16ToString (referenced by _embind_register_std_wstring, referenced by root reference (e.g. compiled C/C++ code))
+adding $UTF16Decoder (referenced by $UTF16ToString, referenced by _embind_register_std_wstring, referenced by root reference (e.g. compiled C/C++ code))
+adding $stringToUTF16 (referenced by _embind_register_std_wstring, referenced by root reference (e.g. compiled C/C++ code))
+adding $lengthBytesUTF16 (referenced by _embind_register_std_wstring, referenced by root reference (e.g. compiled C/C++ code))
+adding $UTF32ToString (referenced by _embind_register_std_wstring, referenced by root reference (e.g. compiled C/C++ code))
+adding $stringToUTF32 (referenced by _embind_register_std_wstring, referenced by root reference (e.g. compiled C/C++ code))
+adding $lengthBytesUTF32 (referenced by _embind_register_std_wstring, referenced by root reference (e.g. compiled C/C++ code))
+adding _embind_register_void (referenced by root reference (e.g. compiled C/C++ code))
+adding _emscripten_init_main_thread_js (referenced by root reference (e.g. compiled C/C++ code))
+adding _emscripten_notify_mailbox_postmessage (referenced by root reference (e.g. compiled C/C++ code))
+adding $checkMailbox (referenced by _emscripten_notify_mailbox_postmessage, referenced by root reference (e.g. compiled C/C++ code))
+adding $callUserCallback (referenced by $checkMailbox, referenced by _emscripten_notify_mailbox_postmessage, referenced by root reference (e.g. compiled C/C++ code))
+adding $handleException (referenced by $callUserCallback, referenced by $checkMailbox, referenced by _emscripten_notify_mailbox_postmessage, referenced by root reference (e.g. compiled C/C++ code))
+adding $maybeExit (referenced by $callUserCallback, referenced by $checkMailbox, referenced by _emscripten_notify_mailbox_postmessage, referenced by root reference (e.g. compiled C/C++ code))
+adding _emscripten_thread_mailbox_await (referenced by $checkMailbox, referenced by _emscripten_notify_mailbox_postmessage, referenced by root reference (e.g. compiled C/C++ code))
+adding _emscripten_receive_on_main_thread_js (referenced by root reference (e.g. compiled C/C++ code))
+adding $proxiedJSCallArgs (referenced by _emscripten_receive_on_main_thread_js, referenced by root reference (e.g. compiled C/C++ code))
+adding _emscripten_runtime_keepalive_clear (referenced by root reference (e.g. compiled C/C++ code))
+adding _emscripten_system (referenced by root reference (e.g. compiled C/C++ code))
+adding _emscripten_thread_cleanup (referenced by root reference (e.g. compiled C/C++ code))
+adding _emscripten_thread_set_strongref (referenced by root reference (e.g. compiled C/C++ code))
+adding _emscripten_throw_longjmp (referenced by root reference (e.g. compiled C/C++ code))
+adding _gmtime_js (referenced by root reference (e.g. compiled C/C++ code))
+adding _localtime_js (referenced by root reference (e.g. compiled C/C++ code))
+adding $ydayFromDate (referenced by _localtime_js, referenced by root reference (e.g. compiled C/C++ code))
+adding $isLeapYear (referenced by $ydayFromDate, referenced by _localtime_js, referenced by root reference (e.g. compiled C/C++ code))
+adding $MONTH_DAYS_LEAP_CUMULATIVE (referenced by $ydayFromDate, referenced by _localtime_js, referenced by root reference (e.g. compiled C/C++ code))
+adding $MONTH_DAYS_REGULAR_CUMULATIVE (referenced by $ydayFromDate, referenced by _localtime_js, referenced by root reference (e.g. compiled C/C++ code))
+adding _mktime_js (referenced by root reference (e.g. compiled C/C++ code))
+adding _mmap_js (referenced by root reference (e.g. compiled C/C++ code))
+adding _munmap_js (referenced by root reference (e.g. compiled C/C++ code))
+adding _setitimer_js (referenced by root reference (e.g. compiled C/C++ code))
+adding $timers (referenced by _setitimer_js, referenced by root reference (e.g. compiled C/C++ code))
+adding $clearTimers (referenced by _setitimer_js, referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_get_now (referenced by _setitimer_js, referenced by root reference (e.g. compiled C/C++ code))
+adding _tzset_js (referenced by root reference (e.g. compiled C/C++ code))
+adding clock_time_get (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_date_now (referenced by clock_time_get, referenced by root reference (e.g. compiled C/C++ code))
+adding $nowIsMonotonic (referenced by clock_time_get, referenced by root reference (e.g. compiled C/C++ code))
+adding $checkWasiClock (referenced by clock_time_get, referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_asm_const_double (referenced by root reference (e.g. compiled C/C++ code))
+adding $runEmAsmFunction (referenced by emscripten_asm_const_double, referenced by root reference (e.g. compiled C/C++ code))
+adding $readEmAsmArgs (referenced by $runEmAsmFunction, referenced by emscripten_asm_const_double, referenced by root reference (e.g. compiled C/C++ code))
+adding $readEmAsmArgsArray (referenced by $readEmAsmArgs, referenced by $runEmAsmFunction, referenced by emscripten_asm_const_double, referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_asm_const_int (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_async_wget2 (referenced by root reference (e.g. compiled C/C++ code))
+adding $wget (referenced by emscripten_async_wget2, referenced by root reference (e.g. compiled C/C++ code))
+adding $stringToUTF8OnStack (referenced by emscripten_async_wget2, referenced by root reference (e.g. compiled C/C++ code))
+adding $runtimeKeepalivePush (referenced by emscripten_async_wget2, referenced by root reference (e.g. compiled C/C++ code))
+adding $runtimeKeepalivePop (referenced by emscripten_async_wget2, referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_async_wget2_data (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_check_blocking_allowed (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_enter_soft_fullscreen (referenced by root reference (e.g. compiled C/C++ code))
+adding $JSEvents (referenced by emscripten_enter_soft_fullscreen, referenced by root reference (e.g. compiled C/C++ code))
+adding $hideEverythingExceptGivenElement (referenced by emscripten_enter_soft_fullscreen, referenced by root reference (e.g. compiled C/C++ code))
+adding $restoreOldWindowedStyle (referenced by emscripten_enter_soft_fullscreen, referenced by root reference (e.g. compiled C/C++ code))
+adding $restoreHiddenElements (referenced by emscripten_enter_soft_fullscreen, referenced by root reference (e.g. compiled C/C++ code))
+adding $currentFullscreenStrategy (referenced by emscripten_enter_soft_fullscreen, referenced by root reference (e.g. compiled C/C++ code))
+adding $softFullscreenResizeWebGLRenderTarget (referenced by emscripten_enter_soft_fullscreen, referenced by root reference (e.g. compiled C/C++ code))
+adding $setLetterbox (referenced by $softFullscreenResizeWebGLRenderTarget, referenced by emscripten_enter_soft_fullscreen, referenced by root reference (e.g. compiled C/C++ code))
+adding $getCanvasElementSize (referenced by $softFullscreenResizeWebGLRenderTarget, referenced by emscripten_enter_soft_fullscreen, referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_get_canvas_element_size (referenced by $getCanvasElementSize, referenced by $softFullscreenResizeWebGLRenderTarget, referenced by emscripten_enter_soft_fullscreen, referenced by root reference (e.g. compiled C/C++ code))
+adding $getCanvasSizeCallingThread (referenced by emscripten_get_canvas_element_size, referenced by $getCanvasElementSize, referenced by $softFullscreenResizeWebGLRenderTarget, referenced by emscripten_enter_soft_fullscreen, referenced by root reference (e.g. compiled C/C++ code))
+js alias: findCanvasEventTarget -> $findEventTarget
+adding $findCanvasEventTarget (referenced by $getCanvasSizeCallingThread, referenced by emscripten_get_canvas_element_size, referenced by $getCanvasElementSize, referenced by $softFullscreenResizeWebGLRenderTarget, referenced by emscripten_enter_soft_fullscreen, referenced by root reference (e.g. compiled C/C++ code))
+adding $findEventTarget (referenced by $findCanvasEventTarget, referenced by $getCanvasSizeCallingThread, referenced by emscripten_get_canvas_element_size, referenced by $getCanvasElementSize, referenced by $softFullscreenResizeWebGLRenderTarget, referenced by emscripten_enter_soft_fullscreen, referenced by root reference (e.g. compiled C/C++ code))
+adding $maybeCStringToJsString (referenced by $findEventTarget, referenced by $findCanvasEventTarget, referenced by $getCanvasSizeCallingThread, referenced by emscripten_get_canvas_element_size, referenced by $getCanvasElementSize, referenced by $softFullscreenResizeWebGLRenderTarget, referenced by emscripten_enter_soft_fullscreen, referenced by root reference (e.g. compiled C/C++ code))
+adding $specialHTMLTargets (referenced by $findEventTarget, referenced by $findCanvasEventTarget, referenced by $getCanvasSizeCallingThread, referenced by emscripten_get_canvas_element_size, referenced by $getCanvasElementSize, referenced by $softFullscreenResizeWebGLRenderTarget, referenced by emscripten_enter_soft_fullscreen, referenced by root reference (e.g. compiled C/C++ code))
+adding $getCanvasSizeMainThread (referenced by emscripten_get_canvas_element_size, referenced by $getCanvasElementSize, referenced by $softFullscreenResizeWebGLRenderTarget, referenced by emscripten_enter_soft_fullscreen, referenced by root reference (e.g. compiled C/C++ code))
+adding $setCanvasElementSize (referenced by $softFullscreenResizeWebGLRenderTarget, referenced by emscripten_enter_soft_fullscreen, referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_set_canvas_element_size (referenced by $setCanvasElementSize, referenced by $softFullscreenResizeWebGLRenderTarget, referenced by emscripten_enter_soft_fullscreen, referenced by root reference (e.g. compiled C/C++ code))
+adding $setCanvasElementSizeCallingThread (referenced by emscripten_set_canvas_element_size, referenced by $setCanvasElementSize, referenced by $softFullscreenResizeWebGLRenderTarget, referenced by emscripten_enter_soft_fullscreen, referenced by root reference (e.g. compiled C/C++ code))
+adding $setCanvasElementSizeMainThread (referenced by emscripten_set_canvas_element_size, referenced by $setCanvasElementSize, referenced by $softFullscreenResizeWebGLRenderTarget, referenced by emscripten_enter_soft_fullscreen, referenced by root reference (e.g. compiled C/C++ code))
+adding $jstoi_q (referenced by $softFullscreenResizeWebGLRenderTarget, referenced by emscripten_enter_soft_fullscreen, referenced by root reference (e.g. compiled C/C++ code))
+adding $callCanvasResizedCallback (referenced by $softFullscreenResizeWebGLRenderTarget, referenced by emscripten_enter_soft_fullscreen, referenced by root reference (e.g. compiled C/C++ code))
+adding $JSEvents_resizeCanvasForFullscreen (referenced by emscripten_enter_soft_fullscreen, referenced by root reference (e.g. compiled C/C++ code))
+adding $registerRestoreOldStyle (referenced by $JSEvents_resizeCanvasForFullscreen, referenced by emscripten_enter_soft_fullscreen, referenced by root reference (e.g. compiled C/C++ code))
+adding $getBoundingClientRect (referenced by $JSEvents_resizeCanvasForFullscreen, referenced by emscripten_enter_soft_fullscreen, referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_exit_fullscreen (referenced by root reference (e.g. compiled C/C++ code))
+adding $JSEvents_requestFullscreen (referenced by emscripten_exit_fullscreen, referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_exit_with_live_runtime (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_get_element_css_size (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_get_fullscreen_status (referenced by root reference (e.g. compiled C/C++ code))
+adding $fillFullscreenChangeEventData (referenced by emscripten_get_fullscreen_status, referenced by root reference (e.g. compiled C/C++ code))
+adding $getFullscreenElement (referenced by $fillFullscreenChangeEventData, referenced by emscripten_get_fullscreen_status, referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_get_heap_max (referenced by root reference (e.g. compiled C/C++ code))
+adding $getHeapMax (referenced by emscripten_get_heap_max, referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_hide_mouse (referenced by root reference (e.g. compiled C/C++ code))
+adding $Browser (referenced by emscripten_hide_mouse, referenced by root reference (e.g. compiled C/C++ code))
+adding $safeSetTimeout (referenced by $Browser, referenced by emscripten_hide_mouse, referenced by root reference (e.g. compiled C/C++ code))
+adding $warnOnce (referenced by $Browser, referenced by emscripten_hide_mouse, referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_num_logical_cores (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_request_fullscreen (referenced by root reference (e.g. compiled C/C++ code))
+adding $doRequestFullscreen (referenced by emscripten_request_fullscreen, referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_request_fullscreen_strategy (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_resize_heap (referenced by root reference (e.g. compiled C/C++ code))
+adding $growMemory (referenced by emscripten_resize_heap, referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_run_script (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_run_script_string (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_set_keydown_callback_on_thread (referenced by root reference (e.g. compiled C/C++ code))
+adding $registerKeyEventCallback (referenced by emscripten_set_keydown_callback_on_thread, referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_set_keyup_callback_on_thread (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_set_main_loop (referenced by root reference (e.g. compiled C/C++ code))
+adding $setMainLoop (referenced by emscripten_set_main_loop, referenced by root reference (e.g. compiled C/C++ code))
+adding $MainLoop (referenced by $setMainLoop, referenced by emscripten_set_main_loop, referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_set_main_loop_timing (referenced by $MainLoop, referenced by $setMainLoop, referenced by emscripten_set_main_loop, referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_set_mousedown_callback_on_thread (referenced by root reference (e.g. compiled C/C++ code))
+adding $registerMouseEventCallback (referenced by emscripten_set_mousedown_callback_on_thread, referenced by root reference (e.g. compiled C/C++ code))
+adding $fillMouseEventData (referenced by $registerMouseEventCallback, referenced by emscripten_set_mousedown_callback_on_thread, referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_set_mouseenter_callback_on_thread (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_set_mouseleave_callback_on_thread (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_set_mousemove_callback_on_thread (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_set_mouseup_callback_on_thread (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_set_touchcancel_callback_on_thread (referenced by root reference (e.g. compiled C/C++ code))
+adding $registerTouchEventCallback (referenced by emscripten_set_touchcancel_callback_on_thread, referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_set_touchend_callback_on_thread (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_set_touchmove_callback_on_thread (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_set_touchstart_callback_on_thread (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_set_wheel_callback_on_thread (referenced by root reference (e.g. compiled C/C++ code))
+adding $registerWheelEventCallback (referenced by emscripten_set_wheel_callback_on_thread, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _emscripten_webgl_create_context -> emscripten_webgl_do_create_context
+adding emscripten_webgl_create_context (referenced by root reference (e.g. compiled C/C++ code))
+adding $GL (referenced by emscripten_webgl_create_context, referenced by root reference (e.g. compiled C/C++ code))
+adding $GLctx (referenced by $GL, referenced by emscripten_webgl_create_context, referenced by root reference (e.g. compiled C/C++ code))
+adding $webgl_enable_ANGLE_instanced_arrays (referenced by $GL, referenced by emscripten_webgl_create_context, referenced by root reference (e.g. compiled C/C++ code))
+adding $webgl_enable_OES_vertex_array_object (referenced by $GL, referenced by emscripten_webgl_create_context, referenced by root reference (e.g. compiled C/C++ code))
+adding $webgl_enable_WEBGL_draw_buffers (referenced by $GL, referenced by emscripten_webgl_create_context, referenced by root reference (e.g. compiled C/C++ code))
+adding $webgl_enable_WEBGL_draw_instanced_base_vertex_base_instance (referenced by $GL, referenced by emscripten_webgl_create_context, referenced by root reference (e.g. compiled C/C++ code))
+adding $webgl_enable_WEBGL_multi_draw_instanced_base_vertex_base_instance (referenced by $GL, referenced by emscripten_webgl_create_context, referenced by root reference (e.g. compiled C/C++ code))
+adding $webgl_enable_EXT_polygon_offset_clamp (referenced by $GL, referenced by emscripten_webgl_create_context, referenced by root reference (e.g. compiled C/C++ code))
+adding $webgl_enable_EXT_clip_control (referenced by $GL, referenced by emscripten_webgl_create_context, referenced by root reference (e.g. compiled C/C++ code))
+adding $webgl_enable_WEBGL_polygon_mode (referenced by $GL, referenced by emscripten_webgl_create_context, referenced by root reference (e.g. compiled C/C++ code))
+adding $webgl_enable_WEBGL_multi_draw (referenced by $GL, referenced by emscripten_webgl_create_context, referenced by root reference (e.g. compiled C/C++ code))
+adding $getEmscriptenSupportedExtensions (referenced by $GL, referenced by emscripten_webgl_create_context, referenced by root reference (e.g. compiled C/C++ code))
+adding $registerPreMainLoop (referenced by $GL, referenced by emscripten_webgl_create_context, referenced by root reference (e.g. compiled C/C++ code))
+adding $webglBufferSubData (referenced by $GL, referenced by emscripten_webgl_create_context, referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_webgl_do_create_context (referenced by emscripten_webgl_create_context, referenced by root reference (e.g. compiled C/C++ code))
+adding $webglPowerPreferences (referenced by emscripten_webgl_do_create_context, referenced by emscripten_webgl_create_context, referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_webgl_destroy_context (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_webgl_make_context_current (referenced by root reference (e.g. compiled C/C++ code))
+adding environ_get (referenced by root reference (e.g. compiled C/C++ code))
+adding $getEnvStrings (referenced by environ_get, referenced by root reference (e.g. compiled C/C++ code))
+adding $ENV (referenced by $getEnvStrings, referenced by environ_get, referenced by root reference (e.g. compiled C/C++ code))
+adding $getExecutableName (referenced by $getEnvStrings, referenced by environ_get, referenced by root reference (e.g. compiled C/C++ code))
+adding environ_sizes_get (referenced by root reference (e.g. compiled C/C++ code))
+adding fd_close (referenced by root reference (e.g. compiled C/C++ code))
+adding fd_fdstat_get (referenced by root reference (e.g. compiled C/C++ code))
+adding fd_read (referenced by root reference (e.g. compiled C/C++ code))
+adding $doReadv (referenced by fd_read, referenced by root reference (e.g. compiled C/C++ code))
+adding fd_seek (referenced by root reference (e.g. compiled C/C++ code))
+adding fd_write (referenced by root reference (e.g. compiled C/C++ code))
+adding $doWritev (referenced by fd_write, referenced by root reference (e.g. compiled C/C++ code))
+adding getaddrinfo (referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glActiveTexture -> emscripten_glActiveTexture
+adding glActiveTexture (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glActiveTexture (referenced by glActiveTexture, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glAttachShader -> emscripten_glAttachShader
+adding glAttachShader (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glAttachShader (referenced by glAttachShader, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glBindAttribLocation -> emscripten_glBindAttribLocation
+adding glBindAttribLocation (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glBindAttribLocation (referenced by glBindAttribLocation, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glBindBuffer -> emscripten_glBindBuffer
+adding glBindBuffer (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glBindBuffer (referenced by glBindBuffer, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glBindFramebuffer -> emscripten_glBindFramebuffer
+adding glBindFramebuffer (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glBindFramebuffer (referenced by glBindFramebuffer, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glBindRenderbuffer -> emscripten_glBindRenderbuffer
+adding glBindRenderbuffer (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glBindRenderbuffer (referenced by glBindRenderbuffer, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glBindTexture -> emscripten_glBindTexture
+adding glBindTexture (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glBindTexture (referenced by glBindTexture, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glBlendEquation -> emscripten_glBlendEquation
+adding glBlendEquation (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glBlendEquation (referenced by glBlendEquation, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glBlendFunc -> emscripten_glBlendFunc
+adding glBlendFunc (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glBlendFunc (referenced by glBlendFunc, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glBufferData -> emscripten_glBufferData
+adding glBufferData (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glBufferData (referenced by glBufferData, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glBufferSubData -> emscripten_glBufferSubData
+adding glBufferSubData (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glBufferSubData (referenced by glBufferSubData, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glCheckFramebufferStatus -> emscripten_glCheckFramebufferStatus
+adding glCheckFramebufferStatus (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glCheckFramebufferStatus (referenced by glCheckFramebufferStatus, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glClear -> emscripten_glClear
+adding glClear (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glClear (referenced by glClear, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glClearColor -> emscripten_glClearColor
+adding glClearColor (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glClearColor (referenced by glClearColor, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glClientWaitSync -> emscripten_glClientWaitSync
+adding glClientWaitSync (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glClientWaitSync (referenced by glClientWaitSync, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glColorMask -> emscripten_glColorMask
+adding glColorMask (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glColorMask (referenced by glColorMask, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glCompileShader -> emscripten_glCompileShader
+adding glCompileShader (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glCompileShader (referenced by glCompileShader, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glCopyTexSubImage2D -> emscripten_glCopyTexSubImage2D
+adding glCopyTexSubImage2D (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glCopyTexSubImage2D (referenced by glCopyTexSubImage2D, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glCreateProgram -> emscripten_glCreateProgram
+adding glCreateProgram (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glCreateProgram (referenced by glCreateProgram, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glCreateShader -> emscripten_glCreateShader
+adding glCreateShader (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glCreateShader (referenced by glCreateShader, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glCullFace -> emscripten_glCullFace
+adding glCullFace (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glCullFace (referenced by glCullFace, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glDeleteBuffers -> emscripten_glDeleteBuffers
+adding glDeleteBuffers (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glDeleteBuffers (referenced by glDeleteBuffers, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glDeleteFramebuffers -> emscripten_glDeleteFramebuffers
+adding glDeleteFramebuffers (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glDeleteFramebuffers (referenced by glDeleteFramebuffers, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glDeleteProgram -> emscripten_glDeleteProgram
+adding glDeleteProgram (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glDeleteProgram (referenced by glDeleteProgram, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glDeleteRenderbuffers -> emscripten_glDeleteRenderbuffers
+adding glDeleteRenderbuffers (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glDeleteRenderbuffers (referenced by glDeleteRenderbuffers, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glDeleteShader -> emscripten_glDeleteShader
+adding glDeleteShader (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glDeleteShader (referenced by glDeleteShader, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glDeleteSync -> emscripten_glDeleteSync
+adding glDeleteSync (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glDeleteSync (referenced by glDeleteSync, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glDeleteTextures -> emscripten_glDeleteTextures
+adding glDeleteTextures (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glDeleteTextures (referenced by glDeleteTextures, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glDepthMask -> emscripten_glDepthMask
+adding glDepthMask (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glDepthMask (referenced by glDepthMask, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glDetachShader -> emscripten_glDetachShader
+adding glDetachShader (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glDetachShader (referenced by glDetachShader, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glDisable -> emscripten_glDisable
+adding glDisable (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glDisable (referenced by glDisable, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glDisableVertexAttribArray -> emscripten_glDisableVertexAttribArray
+adding glDisableVertexAttribArray (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glDisableVertexAttribArray (referenced by glDisableVertexAttribArray, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glDrawArrays -> emscripten_glDrawArrays
+adding glDrawArrays (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glDrawArrays (referenced by glDrawArrays, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glDrawElements -> emscripten_glDrawElements
+adding glDrawElements (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glDrawElements (referenced by glDrawElements, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glDrawElementsInstanced -> emscripten_glDrawElementsInstanced
+adding glDrawElementsInstanced (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glDrawElementsInstanced (referenced by glDrawElementsInstanced, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glEnable -> emscripten_glEnable
+adding glEnable (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glEnable (referenced by glEnable, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glEnableVertexAttribArray -> emscripten_glEnableVertexAttribArray
+adding glEnableVertexAttribArray (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glEnableVertexAttribArray (referenced by glEnableVertexAttribArray, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glFenceSync -> emscripten_glFenceSync
+adding glFenceSync (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glFenceSync (referenced by glFenceSync, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glFlush -> emscripten_glFlush
+adding glFlush (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glFlush (referenced by glFlush, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glFramebufferRenderbuffer -> emscripten_glFramebufferRenderbuffer
+adding glFramebufferRenderbuffer (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glFramebufferRenderbuffer (referenced by glFramebufferRenderbuffer, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glFramebufferTexture2D -> emscripten_glFramebufferTexture2D
+adding glFramebufferTexture2D (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glFramebufferTexture2D (referenced by glFramebufferTexture2D, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glFrontFace -> emscripten_glFrontFace
+adding glFrontFace (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glFrontFace (referenced by glFrontFace, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glGenBuffers -> emscripten_glGenBuffers
+adding glGenBuffers (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glGenBuffers (referenced by glGenBuffers, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glGenFramebuffers -> emscripten_glGenFramebuffers
+adding glGenFramebuffers (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glGenFramebuffers (referenced by glGenFramebuffers, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glGenRenderbuffers -> emscripten_glGenRenderbuffers
+adding glGenRenderbuffers (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glGenRenderbuffers (referenced by glGenRenderbuffers, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glGenTextures -> emscripten_glGenTextures
+adding glGenTextures (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glGenTextures (referenced by glGenTextures, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glGenerateMipmap -> emscripten_glGenerateMipmap
+adding glGenerateMipmap (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glGenerateMipmap (referenced by glGenerateMipmap, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glGetActiveAttrib -> emscripten_glGetActiveAttrib
+adding glGetActiveAttrib (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glGetActiveAttrib (referenced by glGetActiveAttrib, referenced by root reference (e.g. compiled C/C++ code))
+adding $__glGetActiveAttribOrUniform (referenced by emscripten_glGetActiveAttrib, referenced by glGetActiveAttrib, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glGetActiveUniform -> emscripten_glGetActiveUniform
+adding glGetActiveUniform (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glGetActiveUniform (referenced by glGetActiveUniform, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glGetAttribLocation -> emscripten_glGetAttribLocation
+adding glGetAttribLocation (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glGetAttribLocation (referenced by glGetAttribLocation, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glGetBooleanv -> emscripten_glGetBooleanv
+adding glGetBooleanv (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glGetBooleanv (referenced by glGetBooleanv, referenced by root reference (e.g. compiled C/C++ code))
+adding $emscriptenWebGLGet (referenced by emscripten_glGetBooleanv, referenced by glGetBooleanv, referenced by root reference (e.g. compiled C/C++ code))
+adding $writeI53ToI64 (referenced by $emscriptenWebGLGet, referenced by emscripten_glGetBooleanv, referenced by glGetBooleanv, referenced by root reference (e.g. compiled C/C++ code))
+adding $webglGetExtensions (referenced by $emscriptenWebGLGet, referenced by emscripten_glGetBooleanv, referenced by glGetBooleanv, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glGetBufferSubData -> emscripten_glGetBufferSubData
+adding glGetBufferSubData (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glGetBufferSubData (referenced by glGetBufferSubData, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glGetError -> emscripten_glGetError
+adding glGetError (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glGetError (referenced by glGetError, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glGetIntegerv -> emscripten_glGetIntegerv
+adding glGetIntegerv (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glGetIntegerv (referenced by glGetIntegerv, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glGetProgramInfoLog -> emscripten_glGetProgramInfoLog
+adding glGetProgramInfoLog (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glGetProgramInfoLog (referenced by glGetProgramInfoLog, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glGetProgramiv -> emscripten_glGetProgramiv
+adding glGetProgramiv (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glGetProgramiv (referenced by glGetProgramiv, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glGetShaderInfoLog -> emscripten_glGetShaderInfoLog
+adding glGetShaderInfoLog (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glGetShaderInfoLog (referenced by glGetShaderInfoLog, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glGetShaderiv -> emscripten_glGetShaderiv
+adding glGetShaderiv (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glGetShaderiv (referenced by glGetShaderiv, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glGetString -> emscripten_glGetString
+adding glGetString (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glGetString (referenced by glGetString, referenced by root reference (e.g. compiled C/C++ code))
+adding $stringToNewUTF8 (referenced by emscripten_glGetString, referenced by glGetString, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glGetUniformLocation -> emscripten_glGetUniformLocation
+adding glGetUniformLocation (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glGetUniformLocation (referenced by glGetUniformLocation, referenced by root reference (e.g. compiled C/C++ code))
+adding $webglPrepareUniformLocationsBeforeFirstUse (referenced by emscripten_glGetUniformLocation, referenced by glGetUniformLocation, referenced by root reference (e.g. compiled C/C++ code))
+adding $webglGetLeftBracePos (referenced by $webglPrepareUniformLocationsBeforeFirstUse, referenced by emscripten_glGetUniformLocation, referenced by glGetUniformLocation, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glLinkProgram -> emscripten_glLinkProgram
+adding glLinkProgram (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glLinkProgram (referenced by glLinkProgram, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glPixelStorei -> emscripten_glPixelStorei
+adding glPixelStorei (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glPixelStorei (referenced by glPixelStorei, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glReadPixels -> emscripten_glReadPixels
+adding glReadPixels (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glReadPixels (referenced by glReadPixels, referenced by root reference (e.g. compiled C/C++ code))
+adding $emscriptenWebGLGetTexPixelData (referenced by emscripten_glReadPixels, referenced by glReadPixels, referenced by root reference (e.g. compiled C/C++ code))
+adding $computeUnpackAlignedImageSize (referenced by $emscriptenWebGLGetTexPixelData, referenced by emscripten_glReadPixels, referenced by glReadPixels, referenced by root reference (e.g. compiled C/C++ code))
+adding $colorChannelsInGlTextureFormat (referenced by $emscriptenWebGLGetTexPixelData, referenced by emscripten_glReadPixels, referenced by glReadPixels, referenced by root reference (e.g. compiled C/C++ code))
+adding $heapObjectForWebGLType (referenced by $emscriptenWebGLGetTexPixelData, referenced by emscripten_glReadPixels, referenced by glReadPixels, referenced by root reference (e.g. compiled C/C++ code))
+adding $toTypedArrayIndex (referenced by $emscriptenWebGLGetTexPixelData, referenced by emscripten_glReadPixels, referenced by glReadPixels, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glRenderbufferStorage -> emscripten_glRenderbufferStorage
+adding glRenderbufferStorage (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glRenderbufferStorage (referenced by glRenderbufferStorage, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glShaderSource -> emscripten_glShaderSource
+adding glShaderSource (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glShaderSource (referenced by glShaderSource, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glTexImage2D -> emscripten_glTexImage2D
+adding glTexImage2D (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glTexImage2D (referenced by glTexImage2D, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glTexParameterf -> emscripten_glTexParameterf
+adding glTexParameterf (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glTexParameterf (referenced by glTexParameterf, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glTexParameteri -> emscripten_glTexParameteri
+adding glTexParameteri (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glTexParameteri (referenced by glTexParameteri, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glTexSubImage2D -> emscripten_glTexSubImage2D
+adding glTexSubImage2D (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glTexSubImage2D (referenced by glTexSubImage2D, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glUniform1f -> emscripten_glUniform1f
+adding glUniform1f (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glUniform1f (referenced by glUniform1f, referenced by root reference (e.g. compiled C/C++ code))
+adding $webglGetUniformLocation (referenced by emscripten_glUniform1f, referenced by glUniform1f, referenced by root reference (e.g. compiled C/C++ code))
+adding $webglGetProgramUniformLocation (referenced by $webglGetUniformLocation, referenced by emscripten_glUniform1f, referenced by glUniform1f, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glUniform1i -> emscripten_glUniform1i
+adding glUniform1i (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glUniform1i (referenced by glUniform1i, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glUniform2f -> emscripten_glUniform2f
+adding glUniform2f (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glUniform2f (referenced by glUniform2f, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glUniform2i -> emscripten_glUniform2i
+adding glUniform2i (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glUniform2i (referenced by glUniform2i, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glUniform3f -> emscripten_glUniform3f
+adding glUniform3f (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glUniform3f (referenced by glUniform3f, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glUniform3i -> emscripten_glUniform3i
+adding glUniform3i (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glUniform3i (referenced by glUniform3i, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glUniform4f -> emscripten_glUniform4f
+adding glUniform4f (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glUniform4f (referenced by glUniform4f, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glUniform4fv -> emscripten_glUniform4fv
+adding glUniform4fv (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glUniform4fv (referenced by glUniform4fv, referenced by root reference (e.g. compiled C/C++ code))
+adding $miniTempWebGLFloatBuffers (referenced by emscripten_glUniform4fv, referenced by glUniform4fv, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glUniform4i -> emscripten_glUniform4i
+adding glUniform4i (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glUniform4i (referenced by glUniform4i, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glUniformMatrix3fv -> emscripten_glUniformMatrix3fv
+adding glUniformMatrix3fv (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glUniformMatrix3fv (referenced by glUniformMatrix3fv, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glUniformMatrix4fv -> emscripten_glUniformMatrix4fv
+adding glUniformMatrix4fv (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glUniformMatrix4fv (referenced by glUniformMatrix4fv, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glUseProgram -> emscripten_glUseProgram
+adding glUseProgram (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glUseProgram (referenced by glUseProgram, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glVertexAttrib1f -> emscripten_glVertexAttrib1f
+adding glVertexAttrib1f (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glVertexAttrib1f (referenced by glVertexAttrib1f, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glVertexAttrib2f -> emscripten_glVertexAttrib2f
+adding glVertexAttrib2f (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glVertexAttrib2f (referenced by glVertexAttrib2f, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glVertexAttrib3f -> emscripten_glVertexAttrib3f
+adding glVertexAttrib3f (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glVertexAttrib3f (referenced by glVertexAttrib3f, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glVertexAttrib4f -> emscripten_glVertexAttrib4f
+adding glVertexAttrib4f (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glVertexAttrib4f (referenced by glVertexAttrib4f, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glVertexAttribPointer -> emscripten_glVertexAttribPointer
+adding glVertexAttribPointer (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glVertexAttribPointer (referenced by glVertexAttribPointer, referenced by root reference (e.g. compiled C/C++ code))
+js alias: _glViewport -> emscripten_glViewport
+adding glViewport (referenced by root reference (e.g. compiled C/C++ code))
+adding emscripten_glViewport (referenced by glViewport, referenced by root reference (e.g. compiled C/C++ code))
+adding html5audio_context_create (referenced by root reference (e.g. compiled C/C++ code))
+adding $AUDIO (referenced by html5audio_context_create, referenced by root reference (e.g. compiled C/C++ code))
+adding html5audio_context_samplerate (referenced by root reference (e.g. compiled C/C++ code))
+adding html5audio_context_start (referenced by root reference (e.g. compiled C/C++ code))
+adding html5audio_context_stop (referenced by root reference (e.g. compiled C/C++ code))
+adding html5audio_list_devices (referenced by root reference (e.g. compiled C/C++ code))
+adding html5audio_stream_create (referenced by root reference (e.g. compiled C/C++ code))
+adding html5audio_stream_free (referenced by root reference (e.g. compiled C/C++ code))
+adding html5video_grabber_create (referenced by root reference (e.g. compiled C/C++ code))
+adding $VIDEO (referenced by html5video_grabber_create, referenced by root reference (e.g. compiled C/C++ code))
+adding html5video_grabber_height (referenced by root reference (e.g. compiled C/C++ code))
+adding html5video_grabber_init (referenced by root reference (e.g. compiled C/C++ code))
+adding html5video_grabber_pixel_format (referenced by root reference (e.g. compiled C/C++ code))
+adding html5video_grabber_ready_state (referenced by root reference (e.g. compiled C/C++ code))
+adding html5video_grabber_set_pixel_format (referenced by root reference (e.g. compiled C/C++ code))
+adding html5video_grabber_texture_id (referenced by root reference (e.g. compiled C/C++ code))
+adding html5video_grabber_update (referenced by root reference (e.g. compiled C/C++ code))
+adding html5video_grabber_width (referenced by root reference (e.g. compiled C/C++ code))
+adding html5video_list_devices (referenced by root reference (e.g. compiled C/C++ code))
+adding html5video_player_create (referenced by root reference (e.g. compiled C/C++ code))
+adding html5video_player_current_time (referenced by root reference (e.g. compiled C/C++ code))
+adding html5video_player_delete (referenced by root reference (e.g. compiled C/C++ code))
+adding html5video_player_duration (referenced by root reference (e.g. compiled C/C++ code))
+adding html5video_player_ended (referenced by root reference (e.g. compiled C/C++ code))
+adding html5video_player_height (referenced by root reference (e.g. compiled C/C++ code))
+adding html5video_player_is_paused (referenced by root reference (e.g. compiled C/C++ code))
+adding html5video_player_load (referenced by root reference (e.g. compiled C/C++ code))
+adding html5video_player_load_url (referenced by root reference (e.g. compiled C/C++ code))
+adding html5video_player_loop (referenced by root reference (e.g. compiled C/C++ code))
+adding html5video_player_pause (referenced by root reference (e.g. compiled C/C++ code))
+adding html5video_player_pixel_format (referenced by root reference (e.g. compiled C/C++ code))
+adding html5video_player_play (referenced by root reference (e.g. compiled C/C++ code))
+adding html5video_player_playback_rate (referenced by root reference (e.g. compiled C/C++ code))
+adding html5video_player_ready_state (referenced by root reference (e.g. compiled C/C++ code))
+adding html5video_player_set_current_time (referenced by root reference (e.g. compiled C/C++ code))
+adding html5video_player_set_loop (referenced by root reference (e.g. compiled C/C++ code))
+adding html5video_player_set_pixel_format (referenced by root reference (e.g. compiled C/C++ code))
+adding html5video_player_set_playback_rate (referenced by root reference (e.g. compiled C/C++ code))
+adding html5video_player_set_volume (referenced by root reference (e.g. compiled C/C++ code))
+adding html5video_player_stop (referenced by root reference (e.g. compiled C/C++ code))
+adding html5video_player_texture_id (referenced by root reference (e.g. compiled C/C++ code))
+adding html5video_player_update (referenced by root reference (e.g. compiled C/C++ code))
+adding html5video_player_width (referenced by root reference (e.g. compiled C/C++ code))
+adding random_get (referenced by root reference (e.g. compiled C/C++ code))
+adding $ccall (referenced by root reference (e.g. compiled C/C++ code))
+adding $getCFunc (referenced by $ccall, referenced by root reference (e.g. compiled C/C++ code))
+adding $writeArrayToMemory (referenced by $ccall, referenced by root reference (e.g. compiled C/C++ code))
+adding $cwrap (referenced by root reference (e.g. compiled C/C++ code))
+adding $FS_createPath (referenced by root reference (e.g. compiled C/C++ code))
+adding $FS_unlink (referenced by root reference (e.g. compiled C/C++ code))
+adding $FS_createLazyFile (referenced by root reference (e.g. compiled C/C++ code))
+adding $FS_createDevice (referenced by root reference (e.g. compiled C/C++ code))
+unusedExports: Set(0) {}
+unusedImports: Set(1) { '__syscall_getuid32' }
+make[2]: Entering directory '/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/apps/myApps/filter2309'
+make[2]: warning: -j2 forced in submake: resetting jobserver mode.
+EMBIND_AOT disabled (safer for addons)
+make[2]: Leaving directory '/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/apps/myApps/filter2309'
+make[2]: Entering directory '/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/apps/myApps/filter2309'
+make[2]: warning: -j2 forced in submake: resetting jobserver mode.
+EMBIND_AOT disabled (safer for addons)
+
+Copying assets based on build type (release)...
+Copying app.js and style.css to release directory...
+Assets copied successfully.
+     compiling done
+     to launch the application on the default browser, run:
+
+     emrun bin/em/filter2309
+     
+     some browsers, like safari, don't support webgl
+     
+emrun has automatically found the following browsers in the default install locations on the system:
+
+  - firefox: Mozilla Firefox 156.0.1
+  - chrome: Google Chrome 
+
+You can pass the --browser <id> option to launch with the given browser above.
+Even if your browser was not detected, you can use --browser /path/to/browser/executable to launch with that browser.
+
+make[2]: Leaving directory '/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/apps/myApps/filter2309'
+make[1]: Leaving directory '/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/apps/myApps/filter2309'
+out: /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/apps/myApps/filter2309/bin/em/filter2309

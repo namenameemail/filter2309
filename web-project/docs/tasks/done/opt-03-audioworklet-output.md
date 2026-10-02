@@ -19,7 +19,7 @@
 ## Риски
 
 - интеграция с ofxEmscripten soundstream; при сложностях — свой минимальный JS-модуль вместо `ofSoundStream`;
-- COOP/COEP обязательны (уже нужны для pthreads), учесть в [14-deploy.md](../14-deploy.md).
+- COOP/COEP обязательны (уже нужны для pthreads).
 
 ## Done when
 
