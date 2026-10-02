@@ -1,5 +1,7 @@
 local brushParamText = {}
 brushParamText['lineSize'] = 'size'
+brushParamText['lineType'] = 'line'
+brushParamText['gradient'] = 'gradient'
 brushParamText['circleSize'] = 'size'
 brushParamText['spectreState'] = 'state'
 brushParamText['spectreMode'] = 'mode'
@@ -27,6 +29,8 @@ function drawBrushParams()
         local string = ''
         if type == 'type' then string = tostring(brushParameters[type]) end
         if type == 'lineSize' then string = tostring(math.floor(brushParameters[type] or 0)) end
+        if type == 'lineType' then string = tostring(brushParameters[type]) end
+        if type == 'gradient' then string = tostring(brushParameters[type]) end
         if type == 'circleSize' then string = tostring(math.floor(brushParameters[type] or 0)) end
         if type == 'color' then string = tostring(brushParameters[type]) end
         if type == 'opacity' then string = string.format("%.2f", (brushParameters[type] or 0) / 100) end
@@ -46,6 +50,8 @@ function drawBrushParams()
 
         if type == 'type' then margin = margin + 70 * generalSettings["font"] end
         if type == 'lineSize' then margin = margin + 40 * generalSettings["font"] end
+        if type == 'lineType' then margin = margin + 40 * generalSettings["font"] end
+        if type == 'gradient' then margin = margin + 50 * generalSettings["font"] end
         if type == 'circleSize' then margin = margin + 40 * generalSettings["font"] end
         if type == 'color' then margin = margin + 50 * generalSettings["font"] end
         if type == 'opacity' then margin = margin + 50 * generalSettings["font"] end

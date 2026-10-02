@@ -40,7 +40,7 @@ function mouseDragged(e)
 			-- local h = math.max(1, math.min(H - 1, y)) - buttonsPressed[0].sy
 		end
 		
-		if (brushParameters['type'] == 'line') then
+		if (brushParameters['type'] == 'line' and (brushParameters['lineType'] or '1') == '1') then
 			local color = brushParameters['color'] == 'black' and 0 or 255
 			ofSetColor(color, color, color, brushParameters['opacity'] / 100 * 255)
 			ofSetLineWidth(brushParameters['lineSize'])
@@ -454,6 +454,12 @@ function M.mouseReleased(e)
 			getActiveDynSpectreIndex(x, y)
 		end
 		
+		if buttonsPressed[0] and brushParameters['type'] == 'line' and brushParameters['lineType'] == '2' then
+			fbo:beginFbo()
+			drawStraightLine(buttonsPressed[0].sx, buttonsPressed[0].sy, x, y)
+			fbo:endFbo()
+		end
+
 		buttonsPressed[0] = false
 
 

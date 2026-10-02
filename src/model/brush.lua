@@ -1,3 +1,12 @@
+local lineTypeParams = {
+	["1"] = {"type", "lineType", "lineSize", "color", "opacity"},
+	["2"] = {"type", "lineType", "lineSize", "color", "opacity", "gradient"},
+}
+
+local function lineParams()
+	return lineTypeParams[brushParameters["lineType"]] or lineTypeParams["1"]
+end
+
 function changeBrushParameter(name, delta)
     
     -- print(1, name == 'current', delta, brushParameters['type'])
@@ -37,6 +46,18 @@ function changeBrushParameter(name, delta)
     end
     if name == 'fill' then
         brushParameters['fill'] = getNextRadioItem(delta, brushParameters['fill'], brushParametersSettings['fill'].items)
+    end
+    if name == 'lineType' then
+        brushParameters['lineType'] = getNextRadioItem(delta, brushParameters['lineType'], brushParametersSettings['lineType'].items)
+        local params = getBrushParamsByCurrentType()
+        local ok = false
+        for i = 1, #params do
+            if params[i] == brushParameters['current'] then ok = true end
+        end
+        if not ok then brushParameters['current'] = 'lineType' end
+    end
+    if name == 'gradient' then
+        brushParameters['gradient'] = getNextRadioItem(delta, brushParameters['gradient'], brushParametersSettings['gradient'].items)
     end
 
 
@@ -100,7 +121,7 @@ function getBrushParamsByCurrentType()
     end
 
     if type == "line" then
-        return {"type", "lineSize", "color", "opacity"}
+        return lineParams()
     end
     if type == 'circle' then
         return {"type", "circleSize", "color", "opacity", 'fill'}
@@ -127,7 +148,7 @@ function getVisualBrushParamsByCurrentType()
   end
 
   if type == "line" then
-      return {"type", "lineSize", "color", "opacity"}
+      return lineParams()
   end
   if type == 'circle' then
       return {"type", "circleSize", "color", "opacity", 'fill'}

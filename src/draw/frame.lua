@@ -113,6 +113,10 @@ function M.draw()
 				ofEnableAlphaBlending(); 
 				fboCam:draw(x, H - y, w, -h)
 			end
+
+			if brushParameters["type"] == "line" and brushParameters["lineType"] == "2" then
+				drawStraightLine(buttonsPressed[0].sx, buttonsPressed[0].sy, prevPointX, prevPointY)
+			end
 		end
 
 		

@@ -129,6 +129,12 @@ function M.setup()
 	brushParameters["color"] = "black"
 	brushParametersSettings["color"] = createRadioParameterSettings(ofTable("black", "white"))
 
+	brushParameters["lineType"] = "1"
+	brushParametersSettings["lineType"] = createRadioParameterSettings(ofTable("1", "2"))
+
+	brushParameters["gradient"] = "off"
+	brushParametersSettings["gradient"] = createRadioParameterSettings(ofTable("off", "on"))
+
 	brushParameters["lineSize"] = 1
 	if platform == OF_TARGET_OSX then 
 		brushParametersSettings["lineSize"] = createNumberParameterSettings("lineSize", 1, 12)
