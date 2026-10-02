@@ -739,11 +739,7 @@ function getVisualBrushParamsByCurrentType()
       return {"type", "circleSize", "color", "opacity", 'fill'}
   end
   if type == 'fractal' then
-    if buttonsPressed[0]  then
-      return {"type", 'scale', "color", 'light', "opacity", 'offsetX', 'offsetY'}
-    else
-      return {"type", 'scale', "color", 'light', "opacity"}
-    end
+    return {"type", 'scale', "color", 'light', "opacity", 'offsetX', 'offsetY'}
   end
   if type == 'spectre' then
       return {"type", "spectreState", 'spectreMode'} 
@@ -775,7 +771,7 @@ function drawBrushParams()
         elseif previewParameter and previewParameter.type == 'brush' and previewParameter.param == type then
             ofSetColor(0, 255, 0, 255) -- Желтый цвет для предварительного просмотра
         elseif type == 'offsetX' or type == 'offsetY' then
-            ofSetColor(0, 255, 0, 255) 
+            ofSetColor(0, 255, 255, 255) 
         else
             ofSetColor(0, 0, 255, 255)
         end
@@ -834,6 +830,8 @@ function drawGeneralSettings()
         -- print(generalSettings["current"], type)
         if generalSettings["current"] == type then
             ofSetColor(255, 0, 255, 255)
+        elseif previewParameter and previewParameter.type == 'setting' and previewParameter.param == type then
+            ofSetColor(0, 255, 0, 255)
         else
             ofSetColor(255, 0, 0, 255)
         end

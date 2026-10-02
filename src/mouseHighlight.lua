@@ -13,7 +13,7 @@ MouseHighlight.mouseX = 0
 MouseHighlight.mouseY = 0
 
 -- Размеры кругов
-MouseHighlight.circleRadius = 40
+MouseHighlight.circleRadius = 18
 MouseHighlight.circleOffset = 30  -- расстояние от курсора до круга
 
 -- Цвета кругов
@@ -21,6 +21,7 @@ MouseHighlight.colors = {red = {255, 0, 0, 255},green = {0, 255, 0, 255},blue = 
 
 -- Состояние диаметров
 MouseHighlight.diameters = {visible = false,angle = 0,duration = 0.5, startTime = 0, radius = 50}
+MouseHighlight.legendVisible = true
 
 -- Функция для обновления позиции курсора
 function MouseHighlight.updateMousePosition(x, y)
@@ -115,7 +116,7 @@ function MouseHighlight.draw(smalltext)
     ofEnableAlphaBlending()
     
     -- Отрисовываем красный круг (левая кнопка) - слева от курсора
-    if MouseHighlight.circles.red then
+    if MouseHighlight.legendVisible and MouseHighlight.circles.red then
         ofSetColor(MouseHighlight.colors.red[1], MouseHighlight.colors.red[2],MouseHighlight.colors.red[3], MouseHighlight.colors.red[4])
         ofFill()
         ofDrawCircle(MouseHighlight.mouseX + MouseHighlight.circleOffset,MouseHighlight.mouseY, MouseHighlight.circleRadius)
@@ -129,7 +130,7 @@ function MouseHighlight.draw(smalltext)
     end
     
     -- Отрисовываем синий круг (правая кнопка) - справа от курсора
-    if MouseHighlight.circles.blue then
+    if MouseHighlight.legendVisible and MouseHighlight.circles.blue then
         ofSetColor(MouseHighlight.colors.blue[1], MouseHighlight.colors.blue[2], MouseHighlight.colors.blue[3], MouseHighlight.colors.blue[4])
         ofFill()
         ofDrawCircle(MouseHighlight.mouseX - MouseHighlight.circleOffset, MouseHighlight.mouseY, MouseHighlight.circleRadius)
@@ -168,7 +169,9 @@ function MouseHighlight.draw(smalltext)
     end
     
     -- Отрисовываем легенду в правом нижнем углу
-    MouseHighlight.drawLegend(smalltext)
+    if MouseHighlight.legendVisible then
+        MouseHighlight.drawLegend(smalltext)
+    end
     
     -- Отключаем альфа-блендинг
     ofDisableAlphaBlending()
@@ -180,16 +183,32 @@ function MouseHighlight.drawLegend(smalltext)
     local screenHeight = ofGetHeight()
     
     -- Параметры легенды
-    local legendX = screenWidth - 150 * generalSettings["font"]    -- отступ от правого края
-    local legendY = screenHeight - 120 * generalSettings["font"] -- отступ от нижнего края
+    local legendX = screenWidth - 150 * generalSettings["font"]
+    local legendY = screenHeight - 195 * generalSettings["font"]
     local circleSize = 10 * generalSettings["font"]                -- размер кругов в легенде
     local lineHeight = 25 * generalSettings["font"]              -- высота строки
     local textOffset = 20 * generalSettings["font"]               -- отступ текста от кругов
     
     -- Включаем альфа-блендинг для текста
     ofEnableAlphaBlending()
-    
-    -- Устанавливаем цвет текста (белый)
+
+    local function textRight(text)
+        local mesh = smalltext:getStringMesh(text, 0, 0)
+        local right = 0
+        for i = 0, mesh:getNumVertices() - 1 do
+            local x = mesh:getVertex(i).x
+            if x > right then right = x end
+        end
+        return right
+    end
+    local function drawName(text, key, y)
+        ofSetColor(0, 0, 0, 255)
+        smalltext:drawString(text, legendX + circleSize - textRight(text), y)
+        smalltext:drawString(key, legendX + textOffset, y)
+    end
+    drawName("clear", "C", legendY - lineHeight * 2 + 5)
+    drawName("legend", "L", legendY - lineHeight + 5)
+
     ofSetColor(0,0,0, 255)
     
     -- Отрисовываем красный круг (правая кнопка)
@@ -199,7 +218,7 @@ function MouseHighlight.drawLegend(smalltext)
     
     -- Текст для красного круга
     ofSetColor(0,0,0, 255)
-    smalltext:drawString("right button", legendX + textOffset, legendY + 5)
+    smalltext:drawString("E", legendX + textOffset, legendY + 5)
     
     -- Отрисовываем зеленый круг (средняя кнопка)
     ofSetColor(MouseHighlight.colors.green[1], MouseHighlight.colors.green[2], MouseHighlight.colors.green[3], MouseHighlight.colors.green[4])
@@ -208,7 +227,7 @@ function MouseHighlight.drawLegend(smalltext)
     
     -- Текст для зеленого круга
     ofSetColor(0,0,0, 255)
-    smalltext:drawString("wheel button", legendX + textOffset, legendY + lineHeight + 5)
+    smalltext:drawString("A, D", legendX + textOffset, legendY + lineHeight + 5)
     
     -- Отрисовываем синий круг (левая кнопка)
     ofSetColor(MouseHighlight.colors.blue[1], MouseHighlight.colors.blue[2], MouseHighlight.colors.blue[3], MouseHighlight.colors.blue[4])
@@ -217,7 +236,7 @@ function MouseHighlight.drawLegend(smalltext)
     
     -- Текст для синего круга
     ofSetColor(0,0,0, 255)
-    smalltext:drawString("left button", legendX + textOffset, legendY + lineHeight * 2 + 5)
+    smalltext:drawString("Q", legendX + textOffset, legendY + lineHeight * 2 + 5)
     
     -- Отрисовываем крест (диаметры)
     ofSetColor(255, 0, 255, 200) -- тот же цвет, что и у диаметров
@@ -235,7 +254,14 @@ function MouseHighlight.drawLegend(smalltext)
     
     -- Текст для креста
     ofSetColor(0,0,0, 255)
-    smalltext:drawString("wheel scroll", legendX + textOffset, crossY + 5)
+    smalltext:drawString("W S", legendX + textOffset, crossY + 5)
+
+    local panY = legendY + lineHeight * 4
+    ofSetColor(0, 255, 255, 255)
+    ofFill()
+    ofDrawCircle(legendX, panY, circleSize)
+    ofSetColor(0, 0, 0, 255)
+    smalltext:drawString("F", legendX + textOffset, panY + 5)
 
     ofSetLineWidth(1)
 end

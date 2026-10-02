@@ -764,19 +764,12 @@ function mouseDragged(e)
 	end
 
 	if buttonsPressed[1] then
-        
-        -- Обновляем предварительный параметр при перетаскивании средней кнопки
         previewParameter = calculatePreviewParameter(x, y)
+	end
 
-
-		if (brushParameters["type"] == 'fractal') and buttonsPressed[0] then
-
-			changeBrushParameter('offsetX' .. 'wheel', - x + prevPointX)
-			changeBrushParameter('offsetY' .. 'wheel', - y + prevPointY)
-
-			
-		end
-
+	if fractalPan and brushParameters["type"] == 'fractal' and buttonsPressed[0] then
+		changeBrushParameter('offsetX' .. 'wheel', - x + prevPointX)
+		changeBrushParameter('offsetY' .. 'wheel', - y + prevPointY)
 	end
 	
 
@@ -1214,9 +1207,40 @@ function M.mouseScrolled(e)
 end
 
 
-KEY_MOUSE_BUTTONS = { [49] = 0, [50] = 1, [51] = 2 }
-KEY_MOUSE_SCROLL = { [52] = -1, [53] = 1 }
+KEY_MOUSE_BUTTONS = { [string.byte('q')] = 0, [string.byte('Q')] = 0, [string.byte('e')] = 2, [string.byte('E')] = 2 }
+KEY_MOUSE_SCROLL = { [string.byte('s')] = -1, [string.byte('S')] = -1, [string.byte('w')] = 1, [string.byte('W')] = 1 }
+KEY_PARAM_STEP = { [string.byte('a')] = -1, [string.byte('A')] = -1, [string.byte('d')] = 1, [string.byte('D')] = 1 }
 keyMouseHeld = {}
+keyParamHeld = {}
+fractalPan = false
+
+local function paramPreview(delta)
+	local target = activeSelectIndex
+	if target then
+		return { type = 'select', target = target, param = getNextRadioItem(delta, selects[target]['current'], selectParametersSettings['current'].items) }
+	end
+	if isSetting then
+		return { type = 'setting', param = getNextRadioItem(delta, generalSettings['current'], generalSettingsSettings['current'].items) }
+	end
+	return { type = 'brush', param = getNextRadioItem(delta, brushParameters['current'], getBrushParamsByCurrentType()) }
+end
+
+local function applyParamStep(delta)
+	local target = activeSelectIndex
+	if target then
+		changeSelectParameter(target, 'current', delta)
+	elseif isSetting then
+		changeSetting('current', delta)
+	else
+		changeBrushParameter('current', delta)
+	end
+end
+
+local function heldParamStep()
+	for key, step in pairs(keyParamHeld) do
+		return step
+	end
+end
 
 function keyMouseEvent(button, scrollY)
 	return { x = ofGetMouseX(), y = ofGetMouseY(), button = button, scrollX = 0, scrollY = scrollY }
@@ -1228,9 +1252,44 @@ function M.keyReleased(e)
 		keyMouseHeld[e.key] = nil
 		M.mouseReleased(keyMouseEvent(button, 0))
 	end
+
+	if e.key == string.byte('f') or e.key == string.byte('F') then
+		fractalPan = false
+	end
+	if e.key == string.byte('l') or e.key == string.byte('L') then
+		legendKeyHeld = false
+	end
+
+	local step = keyParamHeld[e.key]
+	if step then
+		keyParamHeld[e.key] = nil
+		applyParamStep(step)
+		local still = heldParamStep()
+		previewParameter = still and paramPreview(still) or nil
+	end
 end
 
 function M.keyPressed(e)
+
+	if e.key == string.byte('f') or e.key == string.byte('F') then
+		fractalPan = true
+		return
+	end
+
+	if e.key == string.byte('c') or e.key == string.byte('C') then
+		fbo:beginFbo()
+		ofClear(255, 255, 255, 255)
+		fbo:endFbo()
+		return
+	end
+
+	if e.key == string.byte('l') or e.key == string.byte('L') then
+		if not legendKeyHeld then
+			legendKeyHeld = true
+			MouseHighlight.legendVisible = not MouseHighlight.legendVisible
+		end
+		return
+	end
 
 	local button = KEY_MOUSE_BUTTONS[e.key]
 	if button then
@@ -1269,6 +1328,15 @@ function M.keyPressed(e)
 
 			end
 		end
+	end
+
+	local paramStep = KEY_PARAM_STEP[e.key]
+	if paramStep then
+		if not keyParamHeld[e.key] then
+			keyParamHeld[e.key] = paramStep
+			previewParameter = paramPreview(paramStep)
+		end
+		return
 	end
 
 	if (e.key == OF_KEY_RIGHT or e.key == OF_KEY_LEFT) then
@@ -1326,13 +1394,45 @@ function M.mouseMoved(e)
 
 end
 
+function resizeCanvas(nw, nh)
+	nw = math.floor(nw)
+	nh = math.floor(nh)
+	if nw < 1 or nh < 1 or (nw == W and nh == H) then
+		return
+	end
+	local nextFbo = ofFbo()
+	nextFbo:allocate(nw, nh, GL_RGBA)
+	nextFbo:beginFbo()
+		ofClear(255, 255, 255, 255)
+		ofSetColor(255, 255, 255, 255)
+		ofDisableAlphaBlending()
+		fbo:draw(0, 0)
+		ofEnableAlphaBlending()
+	nextFbo:endFbo()
+	fbo = nextFbo
+	fbo2:allocate(nw, nh, GL_RGBA)
+	fboCam:allocate(nw, nh, GL_RGBA)
+	fboCam:beginFbo()
+		ofClear(0, 0, 0, 0)
+	fboCam:endFbo()
+	W = nw
+	H = nh
+end
+
 function M.update()
 	local t0 = perfNowMs()
 	if webcamOk and webcam then
 		webcam:update()
 	end
 
-	
+	if setupDone then
+		local nw = ofGetWidth()
+		local nh = ofGetHeight()
+		if nw ~= W or nh ~= H then
+			resizeCanvas(nw, nh)
+		end
+	end
+
 	wW = ofGetWidth();
     wH = ofGetHeight();
 	perfSince("update", t0)
