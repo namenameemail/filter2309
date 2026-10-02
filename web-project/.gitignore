@@ -1,0 +1,6 @@
+downloads/*
+!downloads/.gitkeep
+vendor/*
+!vendor/.gitkeep
+dist/*
+!dist/.gitkeep

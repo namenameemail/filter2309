@@ -1,0 +1,206 @@
+emmake: "make -j2" in "/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/EmscriptenExample"
+Compiling OF library for Release
+make[1]: warning: -j2 forced in submake: resetting jobserver mode.
+make[1]: Entering directory '/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/openFrameworksCompiled/project'
+💾 CXX = /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/em++
+💾 CC = /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/emcc
+💾 CXX = /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/em++
+💾 CC = /home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/emcc
+Compiler flags have changed, recompiling
+Old: 
+New -O3 -DNDEBUG -D__EMSCRIPTEN__ -I../../../addons/ofxEmscripten/src -I../../../libs/FreeImage/include -I../../../libs/brotli/include -I../../../libs/brotli/include/brotli -I../../../libs/fmod/include -I../../../libs/fmt/include -I../../../libs/fmt/include/include -I../../../libs/fmt/include/include/fmt -I../../../libs/freetype/include -I../../../libs/freetype/include/freetype -I../../../libs/freetype/include/freetype/internal -I../../../libs/freetype/include/freetype/internal/services -I../../../libs/freetype/include/freetype/config -I../../../libs/glm/include -I../../../libs/glm/include/glm -I../../../libs/glm/include/glm/simd -I../../../libs/glm/include/glm/detail -I../../../libs/glm/include/glm/gtc -I../../../libs/glm/include/glm/ext -I../../../libs/glm/include/glm/gtx -I../../../libs/json/include -I../../../libs/json/include/nlohmann -I../../../libs/kiss/include -I../../../libs/libpng/include -I../../../libs/libpng/include/libpng16 -I../../../libs/libpng/include/libpng16/include -I../../../libs/libpng/include/libpng16/include/libpng16 -I../../../libs/pugixml/include -I../../../libs/tess2/include -I../../../libs/uriparser/include -I../../../libs/uriparser/include/uriparser -I../../../libs/utf8/include -I../../../libs/utf8/include/utf8 -I../../../libs/zlib/include -I../../../libs/openFrameworks -I../../../libs/openFrameworks/app -I../../../libs/openFrameworks/communication -I../../../libs/openFrameworks/graphics -I../../../libs/openFrameworks/video -I../../../libs/openFrameworks/sound -I../../../libs/openFrameworks/utils -I../../../libs/openFrameworks/3d -I../../../libs/openFrameworks/gl -I../../../libs/openFrameworks/math -I../../../libs/openFrameworks/types -I../../../libs/openFrameworks/events -Wall -std=c++14 -Wno-warn-absolute-paths
+Compiling ../../../libs/openFrameworks/app/ofAppNoWindow.cpp
+/home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/em++ -O3 -DNDEBUG -D__EMSCRIPTEN__ -I"../../../addons/ofxEmscripten/src" -I../../../libs/FreeImage/include -I../../../libs/brotli/include -I../../../libs/brotli/include/brotli -I../../../libs/fmod/include -I../../../libs/fmt/include -I../../../libs/fmt/include/include -I../../../libs/fmt/include/include/fmt -I../../../libs/freetype/include -I../../../libs/freetype/include/freetype -I../../../libs/freetype/include/freetype/internal -I../../../libs/freetype/include/freetype/internal/services -I../../../libs/freetype/include/freetype/config -I../../../libs/glm/include -I../../../libs/glm/include/glm -I../../../libs/glm/include/glm/simd -I../../../libs/glm/include/glm/detail -I../../../libs/glm/include/glm/gtc -I../../../libs/glm/include/glm/ext -I../../../libs/glm/include/glm/gtx -I../../../libs/json/include -I../../../libs/json/include/nlohmann -I../../../libs/kiss/include -I../../../libs/libpng/include -I../../../libs/libpng/include/libpng16 -I../../../libs/libpng/include/libpng16/include -I../../../libs/libpng/include/libpng16/include/libpng16 -I../../../libs/pugixml/include -I../../../libs/tess2/include -I../../../libs/uriparser/include -I../../../libs/uriparser/include/uriparser -I../../../libs/utf8/include -I../../../libs/utf8/include/utf8 -I../../../libs/zlib/include -I../../../libs/openFrameworks -I../../../libs/openFrameworks/app -I../../../libs/openFrameworks/communication -I../../../libs/openFrameworks/graphics -I../../../libs/openFrameworks/video -I../../../libs/openFrameworks/sound -I../../../libs/openFrameworks/utils -I../../../libs/openFrameworks/3d -I../../../libs/openFrameworks/gl -I../../../libs/openFrameworks/math -I../../../libs/openFrameworks/types -I../../../libs/openFrameworks/events -Wall -std=c++14 -Wno-warn-absolute-paths -MMD -MP -MF ../../../libs/openFrameworksCompiled/lib/emscripten/obj/Release/libs/openFrameworks/app/ofAppNoWindow.d -MT../../../libs/openFrameworksCompiled/lib/emscripten/obj/Release/libs/openFrameworks/app/ofAppNoWindow.o -o ../../../libs/openFrameworksCompiled/lib/emscripten/obj/Release/libs/openFrameworks/app/ofAppNoWindow.o -c ../../../libs/openFrameworks/app/ofAppNoWindow.cpp
+Compiling ../../../libs/openFrameworks/app/ofMainLoop.cpp
+/home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/em++ -O3 -DNDEBUG -D__EMSCRIPTEN__ -I"../../../addons/ofxEmscripten/src" -I../../../libs/FreeImage/include -I../../../libs/brotli/include -I../../../libs/brotli/include/brotli -I../../../libs/fmod/include -I../../../libs/fmt/include -I../../../libs/fmt/include/include -I../../../libs/fmt/include/include/fmt -I../../../libs/freetype/include -I../../../libs/freetype/include/freetype -I../../../libs/freetype/include/freetype/internal -I../../../libs/freetype/include/freetype/internal/services -I../../../libs/freetype/include/freetype/config -I../../../libs/glm/include -I../../../libs/glm/include/glm -I../../../libs/glm/include/glm/simd -I../../../libs/glm/include/glm/detail -I../../../libs/glm/include/glm/gtc -I../../../libs/glm/include/glm/ext -I../../../libs/glm/include/glm/gtx -I../../../libs/json/include -I../../../libs/json/include/nlohmann -I../../../libs/kiss/include -I../../../libs/libpng/include -I../../../libs/libpng/include/libpng16 -I../../../libs/libpng/include/libpng16/include -I../../../libs/libpng/include/libpng16/include/libpng16 -I../../../libs/pugixml/include -I../../../libs/tess2/include -I../../../libs/uriparser/include -I../../../libs/uriparser/include/uriparser -I../../../libs/utf8/include -I../../../libs/utf8/include/utf8 -I../../../libs/zlib/include -I../../../libs/openFrameworks -I../../../libs/openFrameworks/app -I../../../libs/openFrameworks/communication -I../../../libs/openFrameworks/graphics -I../../../libs/openFrameworks/video -I../../../libs/openFrameworks/sound -I../../../libs/openFrameworks/utils -I../../../libs/openFrameworks/3d -I../../../libs/openFrameworks/gl -I../../../libs/openFrameworks/math -I../../../libs/openFrameworks/types -I../../../libs/openFrameworks/events -Wall -std=c++14 -Wno-warn-absolute-paths -MMD -MP -MF ../../../libs/openFrameworksCompiled/lib/emscripten/obj/Release/libs/openFrameworks/app/ofMainLoop.d -MT../../../libs/openFrameworksCompiled/lib/emscripten/obj/Release/libs/openFrameworks/app/ofMainLoop.o -o ../../../libs/openFrameworksCompiled/lib/emscripten/obj/Release/libs/openFrameworks/app/ofMainLoop.o -c ../../../libs/openFrameworks/app/ofMainLoop.cpp
+In file included from ../../../libs/openFrameworks/app/ofAppNoWindow.cpp:1:
+In file included from ../../../libs/openFrameworks/app/ofAppNoWindow.h:3:
+In file included from ../../../libs/openFrameworks/app/ofAppBaseWindow.h:5:
+../../../libs/openFrameworks/utils/ofConstants.h:449:31: error: expected namespace name
+  449 |                 namespace filesystem = std::filesystem;
+      |                                        ~~~~~^
+In file included from ../../../libs/openFrameworks/app/ofMainLoop.cpp:8:
+In file included from ../../../libs/openFrameworks/app/ofMainLoop.h:3:
+../../../libs/openFrameworks/events/ofEvents.h:119:30: error: no member named 'path' in namespace 'std::filesystem'
+  119 |         std::vector<of::filesystem::path> files;
+      |                                     ^~~~
+In file included from ../../../libs/openFrameworks/app/ofAppNoWindow.cpp:1:
+In file included from ../../../libs/openFrameworks/app/ofAppNoWindow.h:4:
+../../../libs/openFrameworks/events/ofEvents.h:119:14: error: no member named 'filesystem' in namespace 'of'; did you mean 'std::filesystem'?
+  119 |         std::vector<of::filesystem::path> files;
+      |                     ^~~~~~~~~~~~~~
+      |                     std::filesystem
+/home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__chrono/file_clock.h:48:1: note: 'std::filesystem' declared here
+   48 | _LIBCPP_BEGIN_NAMESPACE_FILESYSTEM
+      | ^
+/home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__config:425:84: note: expanded from macro '_LIBCPP_BEGIN_NAMESPACE_FILESYSTEM'
+  425 | #  define _LIBCPP_BEGIN_NAMESPACE_FILESYSTEM _LIBCPP_BEGIN_NAMESPACE_STD namespace filesystem {
+      |                                                                                    ^
+In file included from ../../../libs/openFrameworks/app/ofAppNoWindow.cpp:1:
+In file included from ../../../libs/openFrameworks/app/ofAppNoWindow.h:4:
+../../../libs/openFrameworks/events/ofEvents.h:119:30: error: no member named 'path' in namespace 'std::filesystem'
+  119 |         std::vector<of::filesystem::path> files;
+      |                                     ^~~~
+In file included from ../../../libs/openFrameworks/app/ofMainLoop.cpp:9:
+In file included from ../../../libs/openFrameworks/app/ofBaseApp.h:3:
+../../../libs/openFrameworks/sound/ofSoundBaseTypes.h:180:42: error: no type named 'path' in namespace 'std::filesystem'
+  180 |         virtual bool load(const of::filesystem::path& fileName, bool stream = false)=0;
+      |                                 ~~~~~~~~~~~~~~~~^
+In file included from ../../../libs/openFrameworks/app/ofAppNoWindow.cpp:3:
+In file included from ../../../libs/openFrameworks/graphics/ofPath.h:3:
+In file included from ../../../libs/openFrameworks/graphics/ofPolyline.h:573:
+In file included from ../../../libs/openFrameworks/graphics/ofPolyline.inl:8:
+In file included from ../../../libs/openFrameworks/utils/ofLog.h:4:
+../../../libs/openFrameworks/utils/ofFileUtils.h:279:33: error: no member named 'filesystem' in namespace 'of'; did you mean 'std::filesystem'?
+  279 | ofBuffer ofBufferFromFile(const of::filesystem::path & path, bool binary = true);
+      |                                 ^~~~~~~~~~~~~~
+      |                                 std::filesystem
+/home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__chrono/file_clock.h:48:1: note: 'std::filesystem' declared here
+   48 | _LIBCPP_BEGIN_NAMESPACE_FILESYSTEM
+      | ^
+/home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__config:425:84: note: expanded from macro '_LIBCPP_BEGIN_NAMESPACE_FILESYSTEM'
+  425 | #  define _LIBCPP_BEGIN_NAMESPACE_FILESYSTEM _LIBCPP_BEGIN_NAMESPACE_STD namespace filesystem {
+      |                                                                                    ^
+In file included from ../../../libs/openFrameworks/app/ofAppNoWindow.cpp:3:
+In file included from ../../../libs/openFrameworks/graphics/ofPath.h:3:
+In file included from ../../../libs/openFrameworks/graphics/ofPolyline.h:573:
+In file included from ../../../libs/openFrameworks/graphics/ofPolyline.inl:8:
+In file included from ../../../libs/openFrameworks/utils/ofLog.h:4:
+../../../libs/openFrameworks/utils/ofFileUtils.h:279:49: error: no type named 'path' in namespace 'std::filesystem'
+  279 | ofBuffer ofBufferFromFile(const of::filesystem::path & path, bool binary = true);
+      |                                     ~~~~~~~~~~~~^
+../../../libs/openFrameworks/utils/ofFileUtils.h:290:27: error: no member named 'filesystem' in namespace 'of'; did you mean 'std::filesystem'?
+  290 | bool ofBufferToFile(const of::filesystem::path & path, const ofBuffer & buffer, bool binary = true);
+      |                           ^~~~~~~~~~~~~~
+      |                           std::filesystem
+/home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__chrono/file_clock.h:48:1: note: 'std::filesystem' declared here
+   48 | _LIBCPP_BEGIN_NAMESPACE_FILESYSTEM
+      | ^
+/home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__config:425:84: note: expanded from macro '_LIBCPP_BEGIN_NAMESPACE_FILESYSTEM'
+  425 | #  define _LIBCPP_BEGIN_NAMESPACE_FILESYSTEM _LIBCPP_BEGIN_NAMESPACE_STD namespace filesystem {
+      |                                                                                    ^
+In file included from ../../../libs/openFrameworks/app/ofAppNoWindow.cpp:3:
+In file included from ../../../libs/openFrameworks/graphics/ofPath.h:3:
+In file included from ../../../libs/openFrameworks/graphics/ofPolyline.h:573:
+In file included from ../../../libs/openFrameworks/graphics/ofPolyline.inl:8:
+In file included from ../../../libs/openFrameworks/utils/ofLog.h:4:
+../../../libs/openFrameworks/utils/ofFileUtils.h:290:43: error: no type named 'path' in namespace 'std::filesystem'
+  290 | bool ofBufferToFile(const of::filesystem::path & path, const ofBuffer & buffer, bool binary = true);
+      |                               ~~~~~~~~~~~~^
+../../../libs/openFrameworks/utils/ofFileUtils.h:303:38: error: no member named 'filesystem' in namespace 'of'; did you mean 'std::filesystem'?
+  303 |         static std::string getFileExt(const of::filesystem::path & filename);
+      |                                             ^~~~~~~~~~~~~~
+      |                                             std::filesystem
+/home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__chrono/file_clock.h:48:1: note: 'std::filesystem' declared here
+   48 | _LIBCPP_BEGIN_NAMESPACE_FILESYSTEM
+      | ^
+/home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__config:425:84: note: expanded from macro '_LIBCPP_BEGIN_NAMESPACE_FILESYSTEM'
+  425 | #  define _LIBCPP_BEGIN_NAMESPACE_FILESYSTEM _LIBCPP_BEGIN_NAMESPACE_STD namespace filesystem {
+      |                                                                                    ^
+In file included from ../../../libs/openFrameworks/app/ofAppNoWindow.cpp:3:
+In file included from ../../../libs/openFrameworks/graphics/ofPath.h:3:
+In file included from ../../../libs/openFrameworks/graphics/ofPolyline.h:573:
+In file included from ../../../libs/openFrameworks/graphics/ofPolyline.inl:8:
+In file included from ../../../libs/openFrameworks/utils/ofLog.h:4:
+../../../libs/openFrameworks/utils/ofFileUtils.h:303:54: error: no type named 'path' in namespace 'std::filesystem'
+  303 |         static std::string getFileExt(const of::filesystem::path & filename);
+      |                                                 ~~~~~~~~~~~~^
+../../../libs/openFrameworks/utils/ofFileUtils.h:310:37: error: no member named 'filesystem' in namespace 'of'; did you mean 'std::filesystem'?
+  310 |         static std::string removeExt(const of::filesystem::path & filename);
+      |                                            ^~~~~~~~~~~~~~
+      |                                            std::filesystem
+/home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__chrono/file_clock.h:48:1: note: 'std::filesystem' declared here
+   48 | _LIBCPP_BEGIN_NAMESPACE_FILESYSTEM
+      | ^
+/home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__config:425:84: note: expanded from macro '_LIBCPP_BEGIN_NAMESPACE_FILESYSTEM'
+  425 | #  define _LIBCPP_BEGIN_NAMESPACE_FILESYSTEM _LIBCPP_BEGIN_NAMESPACE_STD namespace filesystem {
+      |                                                                                    ^
+In file included from ../../../libs/openFrameworks/app/ofAppNoWindow.cpp:3:
+In file included from ../../../libs/openFrameworks/graphics/ofPath.h:3:
+In file included from ../../../libs/openFrameworks/graphics/ofPolyline.h:573:
+In file included from ../../../libs/openFrameworks/graphics/ofPolyline.inl:8:
+In file included from ../../../libs/openFrameworks/utils/ofLog.h:4:
+../../../libs/openFrameworks/utils/ofFileUtils.h:310:53: error: no type named 'path' in namespace 'std::filesystem'
+  310 |         static std::string removeExt(const of::filesystem::path & filename);
+      |                                                ~~~~~~~~~~~~^
+../../../libs/openFrameworks/utils/ofFileUtils.h:316:43: error: no member named 'filesystem' in namespace 'of'; did you mean 'std::filesystem'?
+  316 |         static std::string addLeadingSlash(const of::filesystem::path & path);
+      |                                                  ^~~~~~~~~~~~~~
+      |                                                  std::filesystem
+/home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__chrono/file_clock.h:48:1: note: 'std::filesystem' declared here
+   48 | _LIBCPP_BEGIN_NAMESPACE_FILESYSTEM
+      | ^
+/home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__config:425:84: note: expanded from macro '_LIBCPP_BEGIN_NAMESPACE_FILESYSTEM'
+  425 | #  define _LIBCPP_BEGIN_NAMESPACE_FILESYSTEM _LIBCPP_BEGIN_NAMESPACE_STD namespace filesystem {
+      |                                                                                    ^
+In file included from ../../../libs/openFrameworks/app/ofAppNoWindow.cpp:3:
+In file included from ../../../libs/openFrameworks/graphics/ofPath.h:3:
+In file included from ../../../libs/openFrameworks/graphics/ofPolyline.h:573:
+In file included from ../../../libs/openFrameworks/graphics/ofPolyline.inl:8:
+In file included from ../../../libs/openFrameworks/utils/ofLog.h:4:
+../../../libs/openFrameworks/utils/ofFileUtils.h:316:59: error: no type named 'path' in namespace 'std::filesystem'
+  316 |         static std::string addLeadingSlash(const of::filesystem::path & path);
+      |                                                      ~~~~~~~~~~~~^
+../../../libs/openFrameworks/utils/ofFileUtils.h:323:44: error: no member named 'filesystem' in namespace 'of'; did you mean 'std::filesystem'?
+  323 |         static std::string addTrailingSlash(const of::filesystem::path & path);
+      |                                                   ^~~~~~~~~~~~~~
+      |                                                   std::filesystem
+/home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__chrono/file_clock.h:48:1: note: 'std::filesystem' declared here
+   48 | _LIBCPP_BEGIN_NAMESPACE_FILESYSTEM
+      | ^
+/home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__config:425:84: note: expanded from macro '_LIBCPP_BEGIN_NAMESPACE_FILESYSTEM'
+  425 | #  define _LIBCPP_BEGIN_NAMESPACE_FILESYSTEM _LIBCPP_BEGIN_NAMESPACE_STD namespace filesystem {
+      |                                                                                    ^
+In file included from ../../../libs/openFrameworks/app/ofAppNoWindow.cpp:3:
+In file included from ../../../libs/openFrameworks/graphics/ofPath.h:3:
+In file included from ../../../libs/openFrameworks/graphics/ofPolyline.h:573:
+In file included from ../../../libs/openFrameworks/graphics/ofPolyline.inl:8:
+In file included from ../../../libs/openFrameworks/utils/ofLog.h:4:
+../../../libs/openFrameworks/utils/ofFileUtils.h:323:60: error: no type named 'path' in namespace 'std::filesystem'
+  323 |         static std::string addTrailingSlash(const of::filesystem::path & path);
+      |                                                       ~~~~~~~~~~~~^
+../../../libs/openFrameworks/utils/ofFileUtils.h:330:47: error: no member named 'filesystem' in namespace 'of'; did you mean 'std::filesystem'?
+  330 |         static std::string removeTrailingSlash(const of::filesystem::path & path);
+      |                                                      ^~~~~~~~~~~~~~
+      |                                                      std::filesystem
+/home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__chrono/file_clock.h:48:1: note: 'std::filesystem' declared here
+   48 | _LIBCPP_BEGIN_NAMESPACE_FILESYSTEM
+      | ^
+/home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__config:425:84: note: expanded from macro '_LIBCPP_BEGIN_NAMESPACE_FILESYSTEM'
+  425 | #  define _LIBCPP_BEGIN_NAMESPACE_FILESYSTEM _LIBCPP_BEGIN_NAMESPACE_STD namespace filesystem {
+      |                                                                                    ^
+In file included from ../../../libs/openFrameworks/app/ofAppNoWindow.cpp:3:
+In file included from ../../../libs/openFrameworks/graphics/ofPath.h:3:
+In file included from ../../../libs/openFrameworks/graphics/ofPolyline.h:573:
+In file included from ../../../libs/openFrameworks/graphics/ofPolyline.inl:8:
+In file included from ../../../libs/openFrameworks/utils/ofLog.h:4:
+../../../libs/openFrameworks/utils/ofFileUtils.h:330:63: error: no type named 'path' in namespace 'std::filesystem'
+  330 |         static std::string removeTrailingSlash(const of::filesystem::path & path);
+      |                                                          ~~~~~~~~~~~~^
+../../../libs/openFrameworks/utils/ofFileUtils.h:339:47: error: no member named 'filesystem' in namespace 'of'; did you mean 'std::filesystem'?
+  339 |         static std::string getPathForDirectory(const of::filesystem::path & path);
+      |                                                      ^~~~~~~~~~~~~~
+      |                                                      std::filesystem
+/home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__chrono/file_clock.h:48:1: note: 'std::filesystem' declared here
+   48 | _LIBCPP_BEGIN_NAMESPACE_FILESYSTEM
+      | ^
+/home/name/Desktop/filter2309/web-project/vendor/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__config:425:84: note: expanded from macro '_LIBCPP_BEGIN_NAMESPACE_FILESYSTEM'
+  425 | #  define _LIBCPP_BEGIN_NAMESPACE_FILESYSTEM _LIBCPP_BEGIN_NAMESPACE_STD namespace filesystem {
+      |                                                                                    ^
+In file included from ../../../libs/openFrameworks/app/ofAppNoWindow.cpp:3:
+In file included from ../../../libs/openFrameworks/graphics/ofPath.h:3:
+In file included from ../../../libs/openFrameworks/graphics/ofPolyline.h:573:
+In file included from ../../../libs/openFrameworks/graphics/ofPolyline.inl:8:
+In file included from ../../../libs/openFrameworks/utils/ofLog.h:4:
+../../../libs/openFrameworks/utils/ofFileUtils.h:339:63: error: no type named 'path' in namespace 'std::filesystem'
+  339 |         static std::string getPathForDirectory(const of::filesystem::path & path);
+      |                                                          ~~~~~~~~~~~~^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+2 errors generated.
+make[2]: *** [makefileCommon/compile.core.mk:259: ../../../libs/openFrameworksCompiled/lib/emscripten/obj/Release/libs/openFrameworks/app/ofMainLoop.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+20 errors generated.
+make[2]: *** [makefileCommon/compile.core.mk:259: ../../../libs/openFrameworksCompiled/lib/emscripten/obj/Release/libs/openFrameworks/app/ofAppNoWindow.o] Error 1
+make[1]: *** [makefileCommon/compile.core.mk:225: Release] Error 2
+make[1]: Leaving directory '/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/openFrameworksCompiled/project'
+make: *** [/home/name/Desktop/filter2309/web-project/vendor/openFrameworks/libs/openFrameworksCompiled/project/makefileCommon/compile.project.mk:127: Release] Error 2

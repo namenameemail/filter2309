@@ -1,5 +1,6 @@
 
 webcam = ofVideoGrabber()
+webcamOk = false
 
 
 W = 1280
@@ -61,6 +62,15 @@ cursors = ofTable(0, 0, 0, 0, 0, 0)
 
 ZERO_FILTER = createCleanFilter()
 
+FILTER_CACHE = ofTable()
+for fi = 1, SEL_CNT do
+    FILTER_CACHE[fi] = createCleanFilter()
+end
+filterCursorSeen = ofTable()
+for fi = 1, SEL_CNT do
+    filterCursorSeen[fi] = -1
+end
+
 title = ofTrueTypeFont()
 smalltext = ofTrueTypeFont()
 
@@ -68,9 +78,190 @@ isSetting = false
 
 button1PressedTime = nil 
 
+previewParameter = nil
 
+PERF = ofTable()
+PERF.on = true
+PERF.intervalMs = 1000
+PERF.lastLogMs = 0
+PERF.startMs = nil
+PERF.col = ofTable()
+PERF.drawN = 0
+PERF.drawSumMs = 0
+PERF.drawMaxMs = 0
+PERF.drawLastMs = 0
+PERF.sec = ofTable()
+PERF.secOrder = { "frame", "compose", "columns", "present", "spectreBox", "selections", "ui", "highlight", "update", "freq" }
+
+function perfNowMs()
+    if ofGetElapsedTimeMicros then
+        return ofGetElapsedTimeMicros() / 1000
+    end
+    return ofGetElapsedTimef() * 1000
+end
+
+function perfAdd(name, dt)
+    local s = PERF.sec[name]
+    if not s then
+        s = ofTable()
+        s.n = 0
+        s.sum = 0
+        s.max = 0
+        PERF.sec[name] = s
+    end
+    s.n = s.n + 1
+    s.sum = s.sum + dt
+    if dt > s.max then
+        s.max = dt
+    end
+end
+
+function perfSection(name)
+    if not PERF.on or not PERF._secT then
+        return
+    end
+    local now = perfNowMs()
+    perfAdd(name, now - PERF._secT)
+    PERF._secT = now
+end
+
+function perfSince(name, t0)
+    if PERF.on then
+        perfAdd(name, perfNowMs() - t0)
+    end
+end
+
+function perfFlushSections()
+    local parts = {}
+    for _, name in ipairs(PERF.secOrder) do
+        local s = PERF.sec[name]
+        if s and s.n > 0 then
+            parts[#parts + 1] = string.format("%s=%.2f/%.1f", name, s.sum / s.n, s.max)
+            s.n = 0
+            s.sum = 0
+            s.max = 0
+        end
+    end
+    print("PERF sections avg/max ms: " .. table.concat(parts, " "))
+    if audioPerfTake then
+        local calls, sum, max = audioPerfTake()
+        if calls and calls > 0 then
+            print(string.format("PERF audio calls=%d avg=%.2fms max=%.2fms busy=%.0fms/s", calls, sum / calls, max, sum))
+        end
+    end
+end
+
+function perfCol(n)
+    local c = PERF.col[n]
+    if not c then
+        c = ofTable()
+        c.n = 0
+        c.readSum = 0
+        c.readMax = 0
+        c.sampleSum = 0
+        c.sampleMax = 0
+        c.totalSum = 0
+        c.totalMax = 0
+        c.dtSum = 0
+        c.dtMax = 0
+        c.lastMs = nil
+        c.lastCursor = nil
+        c.passes = 0
+        c.cursor = 0
+        PERF.col[n] = c
+    end
+    return c
+end
+
+function perfBeginDraw()
+    if not PERF.on then
+        return
+    end
+    local now = perfNowMs()
+    if PERF._lastDrawT0 then
+        perfAdd("frame", now - PERF._lastDrawT0)
+    end
+    PERF._lastDrawT0 = now
+    PERF._drawT0 = now
+    PERF._secT = now
+end
+
+function perfEndDraw()
+    if not PERF.on or not PERF._drawT0 then
+        return
+    end
+    local dt = perfNowMs() - PERF._drawT0
+    PERF.drawN = PERF.drawN + 1
+    PERF.drawSumMs = PERF.drawSumMs + dt
+    if dt > PERF.drawMaxMs then
+        PERF.drawMaxMs = dt
+    end
+    PERF.drawLastMs = dt
+    PERF._drawT0 = nil
+    perfFlush()
+end
+
+function perfFlush()
+    if not PERF.on then
+        return
+    end
+    local now = perfNowMs()
+    if PERF.startMs == nil then
+        PERF.startMs = now
+    end
+    if now - PERF.lastLogMs < PERF.intervalMs then
+        return
+    end
+    PERF.lastLogMs = now
+
+    local mem = collectgarbage("count")
+    local fps = 0
+    if ofGetFrameRate then
+        fps = ofGetFrameRate()
+    end
+    local drawAvg = 0
+    if PERF.drawN > 0 then
+        drawAvg = PERF.drawSumMs / PERF.drawN
+    end
+    local alive = 0
+    for i = 1, SEL_CNT do
+        if selects[i] then
+            alive = alive + 1
+        end
+    end
+    local pxW = -1
+    local pxH = -1
+    if pixels and pixels.getWidth then
+        pxW = pixels:getWidth()
+        pxH = pixels:getHeight()
+    end
+    print(string.format("PERF t=%.1fs fps=%.1f drawAvg=%.1fms drawMax=%.1fms drawLast=%.1fms mem=%.0fKB selects=%d pixels=%dx%d", (now - PERF.startMs) / 1000, fps, drawAvg, PERF.drawMaxMs, PERF.drawLastMs, mem, alive, pxW, pxH))
+
+    for n = 1, SEL_CNT do
+        local c = PERF.col[n]
+        if c and c.n > 0 then
+            print(string.format("PERF col%d calls=%d readAvg=%.1fms readMax=%.1fms sampleAvg=%.1fms sampleMax=%.1fms totalAvg=%.1fms totalMax=%.1fms dtAvg=%.1fms dtMax=%.1fms passes=%d cursor=%.0f", n, c.n, c.readSum / c.n, c.readMax, c.sampleSum / c.n, c.sampleMax, c.totalSum / c.n, c.totalMax, c.dtSum / c.n, c.dtMax, c.passes, c.cursor))
+            c.n = 0
+            c.readSum = 0
+            c.readMax = 0
+            c.sampleSum = 0
+            c.sampleMax = 0
+            c.totalSum = 0
+            c.totalMax = 0
+            c.dtSum = 0
+            c.dtMax = 0
+        end
+    end
+
+    perfFlushSections()
+
+    PERF.drawN = 0
+    PERF.drawSumMs = 0
+    PERF.drawMaxMs = 0
+end
 
 function drawFreq() 
+    local t0 = perfNowMs()
     local freqsArray = ofArray('freq')
 	fboFreq:beginFbo()
     
@@ -94,44 +285,133 @@ function drawFreq()
     if (freqCursor > freqW) then
         freqCursor = 1
     end
-
-
+    perfSince("freq", t0)
 end
 
 
+function fillFilterCache(n)
+    local sel = selects[n]
+    if not sel then
+        return FILTER_CACHE[n]
+    end
+    local cursor = cursors[n]
+    if filterCursorSeen[n] == cursor then
+        return FILTER_CACHE[n]
+    end
+
+    local t0 = PERF.on and perfNowMs() or 0
+    local sx = sel["sx"]
+    local sy = sel["sy"]
+    local w = sel["w"]
+    local h = sel["h"]
+    local frames = sel["frames"]
+    local x = math.floor(sx + cursor / frames * w + 0.5)
+    local rgbData = FILTER_CACHE[n]
+    local readMs = 0
+    local sampleMs = 0
+
+    if fboSampleColumnR then
+        fboSampleColumnR(fbo2, x, sy, h, rgbData)
+        if PERF.on then
+            readMs = perfNowMs() - t0
+        end
+    else
+        fbo2:readToPixels(pixels)
+        local t1 = PERF.on and perfNowMs() or 0
+        readMs = t1 - t0
+        local pxW = pixels:getWidth()
+        local pxH = pixels:getHeight()
+        if x < 0 then
+            x = 0
+        elseif x >= pxW then
+            x = pxW - 1
+        end
+        for i = 0, 255 do
+            local yy = math.floor(sy + (1 - math.min(1, math.max(0, i * 2 / 255))) * (h - 1) + 0.5)
+            if yy < 0 then
+                yy = 0
+            elseif yy >= pxH then
+                yy = pxH - 1
+            end
+            local col = pixels:getColor(pixels:getPixelIndex(x, yy))
+            rgbData[i + 1] = 255 - col.r
+        end
+        if PERF.on then
+            sampleMs = perfNowMs() - t1
+        end
+    end
+
+    filterCursorSeen[n] = cursor
+
+    if PERF.on then
+        local t2 = perfNowMs()
+        local totalMs = t2 - t0
+        local c = perfCol(n)
+        if c.lastMs then
+            local dt = t2 - c.lastMs
+            c.dtSum = c.dtSum + dt
+            if dt > c.dtMax then
+                c.dtMax = dt
+            end
+        end
+        if c.lastCursor and cursor < c.lastCursor then
+            c.passes = c.passes + 1
+            local wrapDt = -1
+            if c.lastMs then
+                wrapDt = t2 - c.lastMs
+            end
+            print(string.format("PERF WRAP col%d pass=%d cursor=%.0f->%.0f total=%.1fms read=%.1fms sample=%.1fms dt=%.1fms mem=%.0fKB", n, c.passes, c.lastCursor, cursor, totalMs, readMs, sampleMs, wrapDt, collectgarbage("count")))
+        end
+        c.lastMs = t2
+        c.lastCursor = cursor
+        c.cursor = cursor
+        c.n = c.n + 1
+        c.readSum = c.readSum + readMs
+        c.sampleSum = c.sampleSum + sampleMs
+        c.totalSum = c.totalSum + totalMs
+        if readMs > c.readMax then
+            c.readMax = readMs
+        end
+        if sampleMs > c.sampleMax then
+            c.sampleMax = sampleMs
+        end
+        if totalMs > c.totalMax then
+            c.totalMax = totalMs
+        end
+    end
+
+    return rgbData
+end
+
+function refreshActiveFilterCaches()
+    local any = false
+    for n = 1, SEL_CNT do
+        if selects[n] and filterCursorSeen[n] ~= cursors[n] then
+            any = true
+            break
+        end
+    end
+    if not any then
+        if PERF.on then
+            perfFlush()
+        end
+        return
+    end
+    for n = 1, SEL_CNT do
+        if selects[n] then
+            fillFilterCache(n)
+        end
+    end
+    if PERF.on then
+        perfFlush()
+    end
+end
+
 function pixelColumntToArray(n)
-    local rgbData = ofTable()
     if not selects[n] then
         return ZERO_FILTER
     end
-    fbo2:readToPixels(pixels)
-
-
-    local sx = selects[n]["sx"]
-    local sy = selects[n]["sy"]
-    local w = selects[n]["w"]
-    local h = selects[n]["h"]
-    local frames = selects[n]["frames"]
-    
-    local x = sx + cursors[n] / frames * w
-    local y = sy
-    local width = 1
-    local height = h
-    
-    local count = 0
-    
-    
-    
-    for i = 0, 255 do
-        local xx = x
-        local yy = y + (1 - math.min(1, math.max(0, i * 2 / 255))) * (height -1)
-        
-        
-        table.insert(rgbData, (1 - pixels:getColor(xx, yy).r / 255) * 255)
-    
-    end
-    
-    return rgbData
+    return FILTER_CACHE[n]
 end
 
 function getIntersected(x, y)
@@ -396,65 +676,6 @@ function changeSelectParameter(target, name, delta)
 end
 
 
-function getNextParameter(target, name)
-
-    local delta = 1
-    
-    local index = target
-    local parameterIndex = selectParametersSettings[name].index
-
-    if name == 'current' then
-        selects[index]['current'] = getNextRadioItem(delta, selects[index]['current'], selectParametersSettings['current'].items)
-    end
-
-    if name == 'speed' then
-        
-        local min = selectParametersSettings['speed'].min
-        local max = selectParametersSettings['speed'].max
-        
-        selects[index][parameterIndex] = math.max(min, math.min(max, selects[index][parameterIndex] + delta))
-        local value = selects[index][parameterIndex]
-        
-        sends[name][target]:sendFloat(value)
-    end
-
-    if name == 'volume' then
-        local min = selectParametersSettings['volume'].min
-        local max = selectParametersSettings['volume'].max
-        
-        selects[index][parameterIndex] = math.max(min, math.min(max,  selects[index][parameterIndex] + delta * 0.05))
-        local value = selects[index][parameterIndex]
-        
-        sends[name][target]:sendFloat(value)
-    end
-    
-    if name == 'frames' then
-
-        local min = selectParametersSettings["frames"].min
-        local max = selectParametersSettings['frames'].max
-        
-        local d = delta / math.abs(delta);
-        selects[index][parameterIndex] = math.max(min, math.min(max,  selects[index][parameterIndex] + d))
-        local value = selects[index][parameterIndex]
-        -- print('min', max)
-        
-        sends[name][target]:sendFloat(value)
-    end
-
-    if name == 'osc' then
-
-
-        print('osc', index, parameterIndex,  selects[index][parameterIndex])
-        selects[index][parameterIndex] = getNextRadioItem(delta, selects[index][parameterIndex], selectParametersSettings[parameterIndex].items)
-        local value = selects[index][parameterIndex]
-        
-        
-        sends[name][target]:sendFloat(value)
-    end
-    
-    
-end
-
 
 
 
@@ -484,6 +705,37 @@ function getBrushParamsByCurrentType()
 
 end
 
+
+function getVisualBrushParamsByCurrentType() 
+
+  local type = brushParameters['type']
+
+  if type == "camera" then
+      return {"type", "opacity", 'light'}
+  end
+
+  if type == "line" then
+      return {"type", "lineSize", "color", "opacity"}
+  end
+  if type == 'circle' then
+      return {"type", "circleSize", "color", "opacity", 'fill'}
+  end
+  if type == 'fractal' then
+    if buttonsPressed[0]  then
+      return {"type", 'scale', "color", 'light', "opacity", 'offsetX', 'offsetY'}
+    else
+      return {"type", 'scale', "color", 'light', "opacity"}
+    end
+  end
+  if type == 'spectre' then
+      return {"type", "spectreState", 'spectreMode'} 
+  end
+  if type == 'clear' then
+      return {"type"}
+  end
+
+end
+
 local brushParamText = {}
 brushParamText['lineSize'] = 'size'
 brushParamText['circleSize'] = 'size'
@@ -492,18 +744,22 @@ brushParamText['spectreMode'] = 'mode'
 
 function drawBrushParams() 
 
-    local params = getBrushParamsByCurrentType()
+    local params = getVisualBrushParamsByCurrentType()
 
     local margin = 10 * generalSettings["font"]
-	local firstLine = 8 * generalSettings["font"]
-	local secLine = 25 * generalSettings["font"]
+    local firstLine = 8 * generalSettings["font"]
+    local secLine = 25 * generalSettings["font"]
 
     for i, type in ipairs(params) do
 
         if not activeSelectIndex and brushParameters["current"] == type then
             ofSetColor(255, 0, 255, 255)
+        elseif previewParameter and previewParameter.type == 'brush' and previewParameter.param == type then
+            ofSetColor(0, 255, 0, 255) -- Желтый цвет для предварительного просмотра
+        elseif type == 'offsetX' or type == 'offsetY' then
+            ofSetColor(0, 255, 0, 255) 
         else
-            ofSetColor(255, 0, 0, 255)
+            ofSetColor(0, 0, 255, 255)
         end
 
         local string = ''

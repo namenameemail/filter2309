@@ -30,7 +30,62 @@ end
 local lastSaveTime = 0
 local saveInterval = 15 -- interval in seconds
 
+
+
+
+function getNextParameter(target)
+    local delta = 1
+    
+    if target then
+        -- Если находимся над выделением, переключаем параметр выделения
+        local currentParam = selects[target]['current']
+        local paramSettings = selectParametersSettings[currentParam]
+        
+        if paramSettings then
+            -- Используем getNextRadioItem для правильного вычисления следующего значения
+            local nextValue = getNextRadioItem(delta, selects[target]['current'], selectParametersSettings['current'].items)
+            
+            if buttonsPressed[0] and brushParameters['current'] == 'scale' then
+              return nil
+            else
+              return {type = 'select', target = target, param = nextValue}
+            end
+        end
+    else
+        -- Если не над выделением, переключаем параметр кисти
+        local currentParam = brushParameters['current']
+        local paramSettings = brushParametersSettings[currentParam]
+        
+        print(11)
+        if paramSettings then
+            
+          
+          
+            -- Используем getNextRadioItem для правильного вычисления следующего значения
+            local nextValue = getNextRadioItem(1, brushParameters['current'],  getBrushParamsByCurrentType() )
+            
+            if buttonsPressed[0] and brushParameters['type'] == 'fractal' then
+              return nil
+            else
+              return {type = 'brush', param = nextValue}
+            end
+        end
+    end
+    
+    return nil
+end
+
+
+-- Функция для вычисления предварительного параметра
+local function calculatePreviewParameter(x, y)
+	local target = getActiveSelectIndex(x, y)
+	return getNextParameter(target)
+end
+
 local function saveFBO2()
+	if ofGetTargetPlatform and ofGetTargetPlatform() == OF_TARGET_EMSCRIPTEN then
+		return
+	end
 	local currentTime = os.time()
 	print(currentTime - lastSaveTime, saveInterval)
 	if currentTime - lastSaveTime >= saveInterval then
@@ -47,6 +102,8 @@ function printtable(table)
 	end
 end
 
+
+
 function M.new()
 	print("new1", W, H)
 	print(getIntersected)
@@ -55,10 +112,8 @@ function M.new()
 	ofWindow.addListener("update", this)
 	ofWindow.addListener("mouseDragged", this)
 	ofWindow.addListener("mouseMoved", this)
-	ofWindow.addListener("mousePressed", this)
-	ofWindow.addListener("mouseReleased", this)
-	ofWindow.addListener("mouseScrolled", this)
     ofWindow.addListener("keyPressed", this) 
+	ofWindow.addListener("keyReleased", this)
 	ofWindow.addListener("exit", this)
 	window:setPosition(30, 100)
 	window:setSize(W, H)
@@ -78,14 +133,12 @@ function M.free()
 	ofWindow.removeListener("exit", this)
 	ofWindow.removeListener("mouseDragged", this)
 	ofWindow.removeListener("mouseMoved", this)
-	ofWindow.removeListener("mousePressed", this)
-	ofWindow.removeListener("mouseReleased", this)
-	ofWindow.removeListener("mouseScrolled", this)
     ofWindow.removeListener("keyPressed", this) 
+	ofWindow.removeListener("keyReleased", this)
 end
 
 function M.setup()
-	print("setup 12") 
+	print("setup 12", "fboSampleColumnR", fboSampleColumnR ~= nil) 
 	-- ofSetWindowTitle("simple color quad") 
 	-- ofBackground(255, 255, 255, 255) 
 	-- local platform = ofGetTargetPlatform() 
@@ -102,19 +155,37 @@ function M.setup()
 	
 
 	-- shaer
-	shader:load(shaderDir .. "shaderBW") 
-	ofEnableArbTex()
+	local useES = false
+	if ofGetTargetPlatform and ofGetTargetPlatform() == OF_TARGET_EMSCRIPTEN then
+		useES = true
+	elseif ofIsGLProgrammableRenderer and ofIsGLProgrammableRenderer() then
+		useES = true
+	end
 
-	-- 
-	shaderFMB:load(shaderDir .. "shaderFMB")
-	-- shaderFMB:load(shaderDir .. "shaderFreq")
+	if useES then
+		ofDisableArbTex()
+		shader:load(shaderDir .. "shadersES2/shaderBW")
+		shaderFMB:load(shaderDir .. "shadersES2/shaderFMB")
+	else
+		ofEnableArbTex()
+		shader:load(shaderDir .. "shaderBW")
+		shaderFMB:load(shaderDir .. "shaderFMB")
+	end
 
 	
 	
 	img:allocate(vW, vH, GL_RGBA)
 	pixels:allocate(vW, vH, GL_RGBA)
 
-	webcam:setup(vW, vH)
+	webcamOk = false
+	local webcamSetupOk, webcamSetupErr = pcall(function()
+		webcam:setup(vW, vH)
+	end)
+	if webcamSetupOk then
+		webcamOk = true
+	else
+		print("webcam setup failed", webcamSetupErr)
+	end
 
 	fbo:allocate(W, H, GL_RGBA)
 	fbo:beginFbo()
@@ -158,8 +229,13 @@ function M.setup()
 		generalSettings["font"] = 1
 	end
 
-	title:load(ofTrueTypeFontSettings(fontPath, 12 * generalSettings["font"]));
-	smalltext:load(ofTrueTypeFontSettings(fontPath, 10 * generalSettings["font"]));
+  
+	local titleFontSettings = ofTrueTypeFontSettings(fontPath, 12 * generalSettings["font"])
+	title:load(titleFontSettings)
+
+	local smalltextFontSettings = ofTrueTypeFontSettings(fontPath, 10 * generalSettings["font"])
+	-- smalltextFontSettings:addRanges(ofAlphabet(ofAlphabet.Cyrillic))
+	smalltext:load(smalltextFontSettings)
 
 
 	-- selects
@@ -274,6 +350,8 @@ function drawSelections()
 
 			if selects[i]['current'] == 'speed' and activeSelectIndex == i then
 				ofSetColor(255, 0, 255, 255)
+			elseif previewParameter and previewParameter.type == 'select' and previewParameter.target == i and previewParameter.param == 'speed' then
+				ofSetColor(0, 255, 0, 255) -- Желтый цвет для предварительного просмотра
 			else
 				ofSetColor(255, 0, 0, 255)
 			end
@@ -307,6 +385,8 @@ function drawSelections()
 			-- color
 			if selects[i]['current'] == 'volume' and activeSelectIndex == i then
 				ofSetColor(255, 0, 255, 255)
+			elseif previewParameter and previewParameter.type == 'select' and previewParameter.target == i and previewParameter.param == 'volume' then
+				ofSetColor(0, 255, 0, 255) -- Желтый цвет для предварительного просмотра
 			else
 				ofSetColor(255, 0, 0, 255)
 			end
@@ -326,6 +406,8 @@ function drawSelections()
 			
 			if selects[i]['current'] == 'frames' and activeSelectIndex == i then
 				ofSetColor(255, 0, 255, 255)
+			elseif previewParameter and previewParameter.type == 'select' and previewParameter.target == i and previewParameter.param == 'frames' then
+				ofSetColor(0, 255, 0, 255) -- Желтый цвет для предварительного просмотра
 			else
 				ofSetColor(255, 0, 0, 255)
 			end
@@ -345,6 +427,8 @@ function drawSelections()
 			
 			if selects[i]['current'] == 'osc' and activeSelectIndex == i then
 				ofSetColor(255, 0, 255, 255)
+			elseif previewParameter and previewParameter.type == 'select' and previewParameter.target == i and previewParameter.param == 'osc' then
+				ofSetColor(0, 255, 0, 255) -- Желтый цвет для предварительного просмотра
 			else
 				ofSetColor(255, 0, 0, 255)
 			end
@@ -362,6 +446,9 @@ function drawSelections()
 end
 
 function M.draw()
+	if perfBeginDraw then
+		perfBeginDraw()
+	end
 	-- print('draw')
 	-- ofSetColor(255)
 	-- shader:beginShader()
@@ -394,7 +481,7 @@ function M.draw()
 
 		if buttonsPressed[0]  then
 
-			if (brushParameters["type"] == "camera") then
+			if (brushParameters["type"] == "camera") and webcamOk then
 				local x = buttonsPressed[0].sx
 				local y = buttonsPressed[0].sy
 				local w = prevPointX - buttonsPressed[0].sx
@@ -405,6 +492,7 @@ function M.draw()
 				
 				fboCam:beginFbo()
 					shader:beginShader()
+						shader:setUniformTexture("tex0", webcam:getTexture(), 0)
 						shader:setUniform1f("W", W);
 						shader:setUniform1f("H", H);
 						shader:setUniform1f("vW", vW);
@@ -495,11 +583,17 @@ function M.draw()
 		
 
 	fbo2:endFbo()
+	perfSection("compose")
 
+	if refreshActiveFilterCaches then
+		refreshActiveFilterCaches()
+	end
+	perfSection("columns")
 
 	ofDisableAlphaBlending(); 
 	ofSetColor(255, 255, 255, 255)
 	fbo2:draw(0, 0, wW, wH)
+	perfSection("present")
 
 
 
@@ -531,15 +625,18 @@ function M.draw()
 	end
 
 
+	perfSection("spectreBox")
+
 	-- ВЫДЕЛЕНИЯ
 	drawSelections()
-	
+	perfSection("selections")
 
 	if (not isSetting) then
 		drawBrushParams() 
 	else
 		drawGeneralSettings() 
 	end 
+	perfSection("ui")
 
 	-- if (cursorPix) then
 	-- 	ofSetColor(255, 0, 0, 255)
@@ -582,11 +679,17 @@ function M.draw()
 	-- end
 
 	MouseHighlight.draw(smalltext)
+	perfSection("highlight")
+	if perfEndDraw then
+		perfEndDraw()
+	end
 end
 
 function M.exit()
 	print("exit")
-	webcam:close()
+	if webcamOk and webcam then
+		webcam:close()
+	end
 	webcam = nil
 	-- shader:unload()
 end
@@ -602,6 +705,8 @@ function mouseDragged(e)
 	-- activeSelectIndex = (not (startButton == 0)) and (not isSetting) and getIntersected(x, y)
 	getActiveSelectIndex(x, y)
 	getActiveDynSpectreIndex(x, y)
+	
+	
 	
 	-- print('drag', not not buttonsPressed[0], not not buttonsPressed[2])
 	-- if startButton == 0 then
@@ -652,7 +757,12 @@ function mouseDragged(e)
 	end
 
 	if buttonsPressed[1] then
-		if (brushParameters["type"] == 'fractal') then
+        
+        -- Обновляем предварительный параметр при перетаскивании средней кнопки
+        previewParameter = calculatePreviewParameter(x, y)
+
+
+		if (brushParameters["type"] == 'fractal') and buttonsPressed[0] then
 
 			changeBrushParameter('offsetX' .. 'wheel', - x + prevPointX)
 			changeBrushParameter('offsetY' .. 'wheel', - y + prevPointY)
@@ -713,6 +823,8 @@ function M.mousePressed(e)
 	if button == 1 then
 		MouseHighlight.setCircle('green', true)
 		
+		-- Вычисляем предварительный параметр при нажатии
+		previewParameter = calculatePreviewParameter(x, y)
 
 		button1PressedTime = os.clock()
 
@@ -828,29 +940,40 @@ function M.mouseReleased(e)
 	if button == 1 then
 		MouseHighlight.setCircle('green', false)
 		
+		-- Очищаем предварительный параметр при отпускании кнопки
+		previewParameter = nil
 
 		local target = getActiveSelectIndex(x, y)
 	
 		if target then
 			changeSelectParameter(target, 'current', 1)
 		else
-			local isLong = os.clock() - button1PressedTime > 0.5;
-			local isShort = os.clock() - button1PressedTime < 0.5;
+			-- local isLong = (os.clock() - button1PressedTime) > 0.5;
+			-- local isShort = (os.clock() - button1PressedTime) < 0.5;
 			
-			if isLong then
-				if not buttonsPressed[0] then 
-					isSetting = not isSetting
-				end
-			else
-				if (isSetting) then
-					changeSetting('current', 1)
-				else
-					if (isShort) then
-						changeBrushParameter('current', 1)
-					end
-				end
+			-- if isLong then
+			-- 	if not buttonsPressed[0] then 
+			-- 		isSetting = not isSetting
+			-- 	end
+			-- else
+			-- 	if (isSetting) then
+			-- 		changeSetting('current', 1)
+			-- 	else
+			-- 		if (isShort) then
+			-- 			changeBrushParameter('current', 1)
+			-- 		end
+			-- 	end
 				
-			end
+			-- end
+
+			if (isSetting) then
+        changeSetting('current', 1)
+      else
+        if buttonsPressed[0] and brushParameters['type'] == 'fractal' then
+        else
+          changeBrushParameter('current', 1)
+        end
+      end
 			
 		end
 		
@@ -864,7 +987,7 @@ function M.mouseReleased(e)
 		MouseHighlight.setCircle('blue', false)
 		
 		
-		if brushParameters['type'] == 'camera' then
+		if brushParameters['type'] == 'camera' and webcamOk then
 
 			fbo:beginFbo()
 
@@ -886,6 +1009,7 @@ function M.mouseReleased(e)
 					
 					fboCam:beginFbo()
 						shader:beginShader()
+							shader:setUniformTexture("tex0", webcam:getTexture(), 0)
 							shader:setUniform1f("W", W);
 							shader:setUniform1f("H", H);
 							shader:setUniform1f("vW", vW);
@@ -1083,10 +1207,51 @@ function M.mouseScrolled(e)
 end
 
 
+KEY_MOUSE_BUTTONS = { [49] = 0, [50] = 1, [51] = 2 }
+KEY_MOUSE_SCROLL = { [52] = -1, [53] = 1 }
+keyMouseHeld = {}
+
+function keyMouseEvent(button, scrollY)
+	return { x = ofGetMouseX(), y = ofGetMouseY(), button = button, scrollX = 0, scrollY = scrollY }
+end
+
+function M.keyReleased(e)
+	local button = KEY_MOUSE_BUTTONS[e.key]
+	if button and keyMouseHeld[e.key] then
+		keyMouseHeld[e.key] = nil
+		M.mouseReleased(keyMouseEvent(button, 0))
+	end
+end
+
 function M.keyPressed(e)
 
-	
+	local button = KEY_MOUSE_BUTTONS[e.key]
+	if button then
+		if not keyMouseHeld[e.key] then
+			keyMouseHeld[e.key] = true
+			M.mousePressed(keyMouseEvent(button, 0))
+		end
+		return
+	end
+
+	local scrollY = KEY_MOUSE_SCROLL[e.key]
+	if scrollY then
+		M.mouseScrolled(keyMouseEvent(0, scrollY))
+		return
+	end
+
 	local target = activeSelectIndex
+
+	if e.key == 112 or e.key == 80 then
+		if PERF then
+			PERF.on = not PERF.on
+			print("PERF", PERF.on and "on" or "off")
+			if PERF.on then
+				PERF.lastLogMs = 0
+				perfFlush()
+			end
+		end
+	end
 
 	if (e.key == OF_KEY_UP or e.key == OF_KEY_DOWN) then 
 		local delta = 1
@@ -1126,6 +1291,14 @@ function M.keyPressed(e)
 		end
 	end
 
+  
+	-- Проверяем, была ли нажата клавиша "P" (заглавная или строчная)
+	if (e.key == string.byte('p')) then
+      if not buttonsPressed[0] then 
+        isSetting = not isSetting
+      end
+	end
+
 
 	
 end
@@ -1158,11 +1331,15 @@ function M.mouseMoved(e)
 end
 
 function M.update()
-	webcam:update()
+	local t0 = perfNowMs()
+	if webcamOk and webcam then
+		webcam:update()
+	end
 
 	
 	wW = ofGetWidth();
     wH = ofGetHeight();
+	perfSince("update", t0)
 
 		
 end

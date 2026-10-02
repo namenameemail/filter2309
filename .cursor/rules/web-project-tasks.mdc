@@ -1,0 +1,20 @@
+---
+description: Completed web-project tasks go to done/; build logs go to docs/logs/
+alwaysApply: true
+---
+
+# web-project tasks hygiene
+
+When finishing a task under `web-project/docs/tasks/`:
+
+1. Set **Статус:** `done` (or `fail` with note) in the task file.
+2. Move the file into `web-project/docs/tasks/done/`.
+3. Update `web-project/docs/tasks/README.md` links (active vs done tables).
+4. Fix relative links in the moved file (`../LAYOUT.md` → `../../LAYOUT.md`; logs → `../../logs/...`).
+
+Build / emrun / spike logs and result notes:
+
+- Write them under `web-project/docs/logs/` (not loose in `docs/`).
+- Name like `spike-NN-*.log`, `*-RESULT.md`, `*-local-patches.md`.
+
+Do not leave completed task files in `docs/tasks/` root.
