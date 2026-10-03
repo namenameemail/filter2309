@@ -119,6 +119,8 @@ local function drawPolyline(pts, yShift, origin, span)
 	local n = #pts
 	if n < 2 then return end
 	local w = (brushParameters['lineSize'] or 1) / 2
+	local minHalf = 0.5 * math.sqrt(2) + 0.1
+	if w < minHalf then w = minHalf end
 	local c = brushParameters['color'] == 'black' and 0 or 1
 	local a0 = (brushParameters['opacity'] or 0) / 100
 	local g = brushParameters['gradient']
@@ -164,6 +166,10 @@ local function drawPolyline(pts, yShift, origin, span)
 					nx, ny = a[1], a[2]
 				else
 					nx, ny = nx / len, ny / len
+					local d = nx * a[1] + ny * a[2]
+					if d > 0.3 then
+						nx, ny = nx / d, ny / d
+					end
 				end
 			elseif a then
 				nx, ny = a[1], a[2]
