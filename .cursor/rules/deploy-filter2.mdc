@@ -1,0 +1,31 @@
+---
+description: Deploy means publish the web build to GitHub Pages filter2
+alwaysApply: true
+---
+
+# Deploy
+
+When the user asks to deploy (деплой, задеплой, deploy), publish the current web build to https://namenameemail.github.io/filter2/.
+
+- Pages repo: `/home/name/Desktop/web/namenameemail.github.io`
+- Folder: `filter2/`
+- Push `main` to `origin` (`git@github.com:namenameemail/namenameemail.github.io.git`)
+- Do not commit the filter2309 repo unless the user asks
+
+Steps:
+
+1. Copy `src/` into `web-project/vendor/openFrameworks/apps/myApps/filter2309/bin/data/pd/src/`.
+2. If only Lua or data changed, delete `bin/em/filter2309/index.html` so make relinks.
+3. Build: `cd web-project && JOBS=4 ./scripts/build-filter2309.sh`
+4. Copy `index.html`, `index.js`, `index.wasm`, `index.data`, `app.js`, `style.css` from `bin/em/filter2309/` into `filter2/`.
+5. Keep `filter2/coi-serviceworker.js`. `index.html` must load it first in `<head>`:
+
+```html
+<script src="coi-serviceworker.js"></script>
+```
+
+GitHub Pages does not send COOP/COEP. The app needs those headers for SharedArrayBuffer.
+
+6. Commit in the pages repo and push `main`.
+
+Do not kill the local server on port 8080.
