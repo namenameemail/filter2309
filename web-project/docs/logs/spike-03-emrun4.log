@@ -1,6 +1,0 @@
-Web server root directory: /home/name/Desktop/filter2309/web-project/vendor/openFrameworks/addons/ofxOfelia/EmscriptenExample/bin/em/EmscriptenExample
-Now listening at http://0.0.0.0:8080/
-wasm streaming compile failed: LinkError: WebAssembly.instantiate(): Import #613 "wasi_snapshot_preview1" "fd_read": function import requires a callable
-falling back to ArrayBuffer instantiation
-failed to asynchronously prepare wasm: LinkError: WebAssembly.instantiate(): Import #613 "wasi_snapshot_preview1" "fd_read": function import requires a callable
-Aborted(LinkError: WebAssembly.instantiate(): Import #613 "wasi_snapshot_preview1" "fd_read": function import requires a callable)
